@@ -1,4 +1,4 @@
 
 export * from './Navbar'
-export * from './Header'
+export * from './SectionPrincipal'
 export * from './Footer'

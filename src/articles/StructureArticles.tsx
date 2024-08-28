@@ -1,13 +1,10 @@
 import { articlesPrimarys } from "./articlesPrimarys"
 
-
-
 export const StructureArticles = () => {
     return (
-
         <>
-            {articlesPrimarys.map((title, image, summary, date, author, link) => {
-                <div className="news-article">
+            {articlesPrimarys.map(({ title, image, summary, date, author, link }, index) => (
+                <div key={index} className="news-article">
                     <img src={image} alt={title} className="news-article-image" />
                     <div className="news-article-content">
                         <h2 className="news-article-title">{title}</h2>
@@ -19,12 +16,7 @@ export const StructureArticles = () => {
                         <a href={link} className="news-article-link">Read more</a>
                     </div>
                 </div>
-
-            })
-
-
-
+            ))}
         </>
-
     )
 }
