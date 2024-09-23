@@ -1,102 +1,7 @@
 /* src/index.css */
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
-
-
-.formNewsLetter {
-    display: flex;
-}
-
-.newsLetter {
-    width: 100%;
-    color: white;
-    background: #6d5efc;
-    display: flex;
-    justify-content: center;
-    padding: 2em;
-}
-
-.textNewsLetter {
-    font-family: 'Raleway', sans-serif;
-    font-size: 24px;
-    font-weight: bold;
-    margin: auto 20px;
-}
-
-.containerInput {
-    display: flex;
-    align-items: center;
-}
-
-.inputFormNewsLetter {
-    height: 40px;
-    width: 400px;
-    border-radius: 10px;
-    border: 1px solid #8d8d8d;
-    text-align: center;
-
-}
-
-.buttonEnviar {
-    font-size: 20px;
-    color: grey;
-    margin-left: 5px;
-    height: 40px;
-
-    &:hover {
-        color: #4A3BD4;
-    }
-}
-
-.containerFooter {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-around;
-    margin: 20px 0 30px;
-    gap: 20px;
-}
-
-
-.logoFooter {
-    width: 200px;
-    height: auto;
-}
-
-.containerIconRedes {
-    display: flex;
-    align-items: center;
-    gap: 50px;
-}
-
-.icon-redes {
-    font-size: 30px;
-    color: #282828;
-
-    &:hover {
-        color: #6d5efc;
-    }
-}
-
-.footer-link {
-    display: flex;
-    justify-content: center;
-    gap: 50px;
-    margin-bottom: 40px;
-}
-
-.footer-item {
-    text-decoration: none;
-    font-family: 'Raleway', sans-serif;
-    font-size: 18px;
-    font-weight: 600;
-    color: #5F5F5F;
-
-    &:hover {
-        color: #5448c7;
-    }
-}
+@tailwind utilities;Q
 
 
 .textCopyright {
@@ -104,4 +9,8 @@
     font-size: 18px;
     font-family: 'Raleway', sans-serif;
     font-weight: 600;
+}
+
+.carousel-inner{
+    width:805;
 }
