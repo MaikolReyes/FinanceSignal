@@ -2,6 +2,9 @@ import foto from "../assets/foto.jpeg";
 
 
 export const SectionPrincipal = () => {
+
+
+
     return (
         <>
             <div className="articlesPrincipal grid grid-cols-[2fr_1fr] justify-items-center">
@@ -30,6 +33,7 @@ export const SectionPrincipal = () => {
                         <span className="visually-hidden">Next</span>
                     </button>
                 </div>
+
 
                 <div>
                     <div className="card w-72 h-10">
