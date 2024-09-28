@@ -1,4 +1,3 @@
-import Articles from "../articles/article";
 import foto from "../assets/foto.jpeg";
 
 
@@ -7,8 +6,6 @@ export const LatestNews = () => {
 
     return (
         <>
-
-            <Articles />
 
 
             <div className="flex justify-center">
