@@ -22,11 +22,3 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-# Activar al terminar el proyeco
-tsconfig.app.json
-tsconfig.json
-tsconfig.node.json
-# Revisar luego
-eslint.config.js
-vite-env.d.ts
-vite.config.ts
