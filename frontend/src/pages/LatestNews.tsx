@@ -1,4 +1,6 @@
 import foto from "../assets/foto.jpeg";
+import Articles from "../components/Articles";
+
 
 export const LatestNews = () => {
   return (
@@ -268,6 +270,8 @@ export const LatestNews = () => {
             </div>
           </div>
         </div>
+
+        <Articles />
       </div>
     </>
   );

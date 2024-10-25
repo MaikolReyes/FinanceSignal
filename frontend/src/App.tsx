@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-      <img src={logo} alt="" className="w-64 mx-auto" />
+      <img src={logo} alt="" className="h-40 mx-auto" />
       <Router>
         <Navbar />
         <Routes>
