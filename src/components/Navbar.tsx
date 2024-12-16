@@ -1,16 +1,21 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { ArticlesContext } from "../context/ArticlesContext";
 
 
 export const Navbar = () => {
 
-    const menuItems = [
-        { href: "/", label: "Ultimas Noticias" },
-        { href: "/finances", label: "Finanzas" },
-        { href: "/technology", label: "Tecnología" },
-        { href: "/cryptocurrencies", label: "Criptomonedas" },
-    ]
+    // const menuItems = [
+    //     { href: "/", label: "Ultimas Noticias" },
+    //     { href: "/finances", label: "Finanzas" },
+    //     { href: "/technology", label: "Tecnología" },
+    //     { href: "/cryptocurrencies", label: "Criptomonedas" },
+    // ]
 
     const sharedClasses = "nav-link text-white font-navbarFont 2xl:text-lg font-semibold hover:text-violet-600 xl:text-base";
+
+    const articles = useContext(ArticlesContext);
+
 
     return (
         <>
@@ -25,11 +30,13 @@ export const Navbar = () => {
 
                     <div className="navbar-collapse flex justify-center" id="navbarNav">
                         <ul className="navbar-nav gap-6 m-5">
-                            {menuItems.map((item, index) => (
-                                <li className="nav-item" key={index}>
-                                    <Link className={sharedClasses} to={item.href}>{item.label}</Link>
-                                </li>
-                            ))}
+
+                            {
+                                articles.sort().map(({ id, category }) => (
+                                    <Link className={sharedClasses} to={`/category/${category.name}`} key={id}>
+                                        <li className='nav-item dropdown-item' key={id}>{category.name}</li>
+                                    </Link>
+                                ))}
                         </ul>
                     </div>
                 </div>
