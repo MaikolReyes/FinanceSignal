@@ -23,10 +23,10 @@ export const Article = () => {
 
     // Mostramos el artículo encontrado
     return (
-        <div key={article.id} className="w-2/3 mx-auto">
-            <img src={article.cover} className="card-img-top w-14 p-5" alt="foto" />
-            <div className="card-body">
-                <h5 className="card-title">{article.title}</h5>
+        <div key={article.id} className="flex justify-center flex-col">
+            <img src={article.cover} className="w-1/3 mx-auto p-3 rounded-3xl" alt="foto" />
+            <div className="card-body w-1/3 mx-auto p-3">
+                <h5 className="card-title mb-3">{article.title}</h5>
                 <div className="card-text">
                     <BlocksRenderer content={article.contenido} />
                 </div>

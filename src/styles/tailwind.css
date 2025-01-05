@@ -16,3 +16,96 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.truncated-text-carousel {
+  display: -webkit-box;
+  -webkit-line-clamp: 6; /* Número de líneas visibles */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// Widtget
+
+.ticker-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.ticker-wrapper {
+  display: flex;
+  gap: 30px; /* Espacio entre los elementos */
+  animation: scroll 30s linear infinite; /* Duración uniforme */
+}
+
+.ticker-wrapper:hover {
+  animation-play-state: paused; /* Pausa la animación al hacer hover */
+}
+
+.ticker-item {
+  flex-shrink: 0; /* Evita que los elementos se reduzcan */
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(100%); /* Empieza fuera del contenedor */
+  }
+  to {
+    transform: translateX(-100%); /* Sale por el otro lado */
+  }
+}
+
+//
+.containerFooter {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.logoFooter {
+  width: 200px;
+  height: auto;
+}
+
+.containerIconRedes {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.icon-redes {
+  font-size: 30px;
+  color: #282828;
+
+  &:hover {
+    color: #6d5efc;
+  }
+}
+
+/* Navbar */
+.navbar-nav {
+  align-items: center;
+  gap: 30px;
+}
+
+.collapse {
+  visibility: visible;
+  display: flex;
+  justify-content: center;
+}
+
+/* Estilos específicos para pantallas pequeñas */
+@media (max-width: 480px) {
+  .collapse {
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+  }
+
+  .collapse.show {
+    visibility: visible;
+    height: auto;
+  }
+}

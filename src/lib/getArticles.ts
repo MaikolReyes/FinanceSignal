@@ -6,14 +6,14 @@ export function getArticles() {
         .then(res => {
 
             // Iteramos sobre los artículos
-            return res.map((article: { id: string; title: string; category: { name: string }; publishedAt: string; contenido: string; imagen: { url: string } }) => {
+            return res.map((article: { id: string; title: string; category: { name: string }; publishedAt: number; contenido: []; className: string; resumen: string; imagen: { url: string } }) => {
 
-                const { id, title, category, contenido, imagen, publishedAt } = article;
+                const { id, title, category, contenido, className, resumen, imagen, publishedAt } = article;
 
                 // Aseguramos que la URL de la imagen esté definida
                 const cover = `${STRAPI_HOST}${imagen.url}`;
 
-                return { id, title, category, contenido, cover, publishedAt };
+                return { id, title, category, contenido, className, resumen, cover, publishedAt };
             });
         })
 }
