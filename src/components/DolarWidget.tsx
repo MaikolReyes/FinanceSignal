@@ -16,9 +16,9 @@ export const DolarWidget = () => {
                     <div
                         key={`${id}-${index}`}
                         className="ticker-item flex text-white gap-1 px-5">
-                        <span className=" desktop:text-sm large-desktop:text-base">Dólar {nombre}:</span>
-                        <span className=" desktop:text-sm large-desktop:text-base"> ${compra} -</span>
-                        <span className=" desktop:text-sm large-desktop:text-base"> ${venta}</span>
+                        <span className="font-secondary text-sm large-desktop:text-base">Dólar {nombre}:</span>
+                        <span className="font-secondary text-sm large-desktop:text-base"> ${compra} -</span>
+                        <span className="font-secondary text-sm large-desktop:text-base"> ${venta}</span>
                     </div>
                 ))}
             </div>

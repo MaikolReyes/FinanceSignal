@@ -23,52 +23,55 @@ export const CategoryContent = () => {
     return (
         <>
             <div className="grid grid-cols-2 w-4/5 mx-auto p-2">
-                {
-                    remainingArticles.map(({ id, title, cover, contenido, publishedAt }) => (
-                        <div key={id} className="card m-3">
+                {remainingArticles.map(({ id, title, cover, contenido, publishedAt }) => (
+                    <div key={id} className="card m-3">
 
-                            <div className="flex h-48">
-                                <div className="w-1/3">
+                        <div className="mobile:flex desktop:flex large-desktop:flex h-full">
+                            <div className="desktop:w-2/3 large-desktop:w-1/3">
+                                <Link to={`/article/${id}`} className="no-underline text-inherit">
+                                    <img src={cover} className="h-full object-cover rounded-start" alt="foto" />
+                                </Link>
+                            </div>
+
+                            <div className="w-full large-desktop:w-4/5">
+                                <div className="card-body">
                                     <Link to={`/article/${id}`} className="no-underline text-inherit">
-                                        <img src={cover} className=" w-full h-full rounded-start" alt="foto" />
+                                        <h5 className="font-title text-lg large-desktop:text-xl no-underline text-inherit">{title}</h5>
                                     </Link>
-                                </div>
-
-                                <div className="w-4/5">
-                                    <div className="card-body">
-                                        <Link to={`/article/${id}`} className="w-full no-underline text-inherit">
-                                            <h5 className="card-title">{title}</h5>
-                                        </Link>
-                                        <div className="truncated-text">
-                                            <BlocksRenderer content={contenido} />
-                                        </div>
-                                        <p className="card-text">
-                                            <small className="text-body-secondary">
-                                                {new Intl.DateTimeFormat('es-ES', {
-                                                    year: 'numeric',
-                                                    month: 'short',
-                                                    day: '2-digit'
-                                                }).format(new Date(publishedAt))}
-                                            </small>
-                                        </p>
+                                    <div className="truncated-text font-secondary text-sm desktop:text-base large-desktop:text-lg">
+                                        <BlocksRenderer content={contenido} />
                                     </div>
+                                    <p className="card-text">
+                                        <small className="text-body-secondary">
+                                            {new Intl.DateTimeFormat('es-ES', {
+                                                year: 'numeric',
+                                                month: 'short',
+                                                day: '2-digit'
+                                            }).format(new Date(publishedAt))}
+                                        </small>
+                                    </p>
                                 </div>
                             </div>
                         </div>
-                    ))
+
+                    </div>
+                ))
                 }
+
             </div >
             <div className="grid grid-cols-4 w-4/5 mx-auto gap-10 p-4">
 
                 {
                     firstFourArticles.map(({ id, title, cover, contenido }) => (
-                        <div key={id} className="card">
-                            <Link to={`/article/${id}`} className="w-full no-underline text-inherit">
-                                <img src={cover} className="card-img-top h-56" alt="foto" />
-                                <div className="card-body">
-                                    <h5 className="card-title">{title}</h5>
-                                    <div className="truncated-text">
-                                        <BlocksRenderer content={contenido} />
+                        <div key={id}>
+                            <Link to={`/article/${id}`} className="no-underline text-inherit">
+                                <div className="card w-full">
+                                    <img src={cover} className="object-cover rounded-sm h-48 large-desktop:h-52" alt="foto" />
+                                    <div className="card-body">
+                                        <h5 className="font-title text-lg large-desktop:text-xl">{title}</h5>
+                                        <div className="truncated-text font-secondary text-sm desktop:text-base large-desktop:text-lg">
+                                            <BlocksRenderer content={contenido} />
+                                        </div>
                                     </div>
                                 </div>
                             </Link>

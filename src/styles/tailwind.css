@@ -19,7 +19,7 @@
 
 .truncated-text-carousel {
   display: -webkit-box;
-  -webkit-line-clamp: 6; /* Número de líneas visibles */
+  -webkit-line-clamp: 5; /* Número de líneas visibles */
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -56,23 +56,9 @@
   }
 }
 
-//
-.containerFooter {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: space-around;
-}
-
 .logoFooter {
   width: 200px;
   height: auto;
-}
-
-.containerIconRedes {
-  display: flex;
-  align-items: center;
-  gap: 50px;
 }
 
 .icon-redes {
@@ -87,7 +73,7 @@
 /* Navbar */
 .navbar-nav {
   align-items: center;
-  gap: 30px;
+  gap: 20px;
 }
 
 .collapse {
@@ -107,5 +93,9 @@
   .collapse.show {
     visibility: visible;
     height: auto;
+  }
+
+  .truncated-text-carousel {
+    -webkit-line-clamp: 6;
   }
 }

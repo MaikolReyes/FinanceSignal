@@ -1,30 +1,29 @@
 import logo from '../assets/logoFinanceSignal.png';
+import { socialLinks } from '../lib/socialLinks';
 
 export const Footer = () => {
     return (
-        <>
-
-
+        <div>
             <img src={logo} alt="Logo de la empresa Zulia" className='logoFooter mx-auto' />
 
-            <div className='containerFooter p-5 bg-blue-500' data-aos="fade-up">
-
-                <div className='containerIconRedes flex justify-center text-white'>
-                    <a href='https://www.facebook.com/profile.php?id=61550461065145' target='_blank' aria-label='Ingresar a facebook' className='icon-redes text-white'>
-                        <i className="fa-brands fa-facebook"></i>
-                    </a>
-                    <a href='https://www.instagram.com/zuliamarketingdigital/' target='_blank' aria-label='Ingresar a Instagram' className='icon-redes text-white'>
-                        <i className="fa-brands fa-instagram"></i>
-                    </a>
-                    <a href='https://www.linkedin.com/company/zulia-marketing-digital/?viewAsMember=true' target='_blank' aria-label='Ingresar a Linkedin' className='icon-redes text-white'>
-                        <i className="fa-brands fa-linkedin"></i>
-                    </a>
+            <div className='flex items-center flex-col justify-around p-4 bg-dark' data-aos="fade-up">
+                <div className='flex items-center gap-5'>
+                    {
+                        socialLinks.map(({ href, label, icon }) => (
+                            <a key={label} href={href} target='_blank'
+                                rel="noopener noreferrer" aria-label={`Ingresar a ${label}`}
+                                className='icon-redes text-white'>
+                                <i className={`fa-brands ${icon}`}></i>
+                            </a>
+                        ))
+                    }
                 </div>
-                <p className='textCopyright text-center text-white mt-5 mb-0'>© 2024 Copyright Zulia Marketing Digital</p>
+
+                <span className='font-secondary text-lg text-center text-white mt-5'>
+                    © 2025 Copyright FinanceSignal
+                </span>
 
             </div >
-
-
-        </>
+        </div>
     );
 };

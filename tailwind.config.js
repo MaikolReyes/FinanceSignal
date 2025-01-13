@@ -5,6 +5,10 @@ export default {
   plugins: [],
   theme: {
     extend: {
+      fontFamily: {
+        title: ['Roboto', 'serif'], // Para el texto principal
+        secondary: ['Lato', 'serif'], // Para los títulos
+      },
       screens: {
         'mobile': '480px',  // Móviles (desde 480px)
         'tablet': '768px',  // Tabletas (desde 768px)
