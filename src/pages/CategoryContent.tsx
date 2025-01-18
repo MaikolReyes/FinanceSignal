@@ -22,7 +22,7 @@ export const CategoryContent = () => {
 
     return (
         <>
-            <div className="grid w-full grid-cols-2 large-desktop:w-4/5 mx-auto p-2">
+            <div className="grid w-full grid-cols-1 desktop:grid-cols-2 large-desktop:grid-cols-2 large-desktop:w-4/5 mx-auto p-2">
                 {recentArticles.slice(0, 6).map(({ id, title, cover, contenido, publishedAt }) => (
                     <div key={id} className="card m-3">
 
@@ -59,7 +59,7 @@ export const CategoryContent = () => {
                 }
 
             </div >
-            <div className="grid grid-cols-4 w-full  large-desktop:w-4/5 mx-auto gap-10 p-4">
+            <div className="grid grid-cols-1 desktop:grid-cols-4 large-desktop:grid-cols-4 w-full  large-desktop:w-4/5 mx-auto gap-10 p-4">
 
                 {
                     recentArticles.slice(6, 10).map(({ id, title, cover, contenido }) => (
