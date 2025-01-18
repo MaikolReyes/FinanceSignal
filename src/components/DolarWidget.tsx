@@ -12,12 +12,11 @@ export const DolarWidget = () => {
     return (
         <div className="ticker-container overflow-hidden bg-dark p-2">
             <div className="ticker-wrapper flex whitespace-nowrap">
-                {dolarApi.slice(0, 6).map(({ id, nombre, compra, venta }, index) => (
+                {dolarApi.map(({ id, nombre, venta }, index) => (
                     <div
                         key={`${id}-${index}`}
                         className="ticker-item flex text-white gap-1 px-5">
                         <span className="font-secondary text-sm large-desktop:text-base">Dólar {nombre}:</span>
-                        <span className="font-secondary text-sm large-desktop:text-base"> ${compra} -</span>
                         <span className="font-secondary text-sm large-desktop:text-base"> ${venta}</span>
                     </div>
                 ))}

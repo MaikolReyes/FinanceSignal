@@ -2,7 +2,7 @@ import { query } from "./strapi";
 const STRAPI_HOST = import.meta.env.VITE_STRAPI_HOST;
 
 export function getArticles() {
-    return query("articles?populate[imagen]=true&populate[category]=true")
+    return query("articles?pagination[limit]=100&pagination[start]=0&populate[imagen]=true&populate[category]=true")
         .then(res => {
 
             // Iteramos sobre los artículos

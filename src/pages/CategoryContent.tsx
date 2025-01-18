@@ -16,14 +16,14 @@ export const CategoryContent = () => {
         return article.category?.name === categoryName;
     });
 
-    // Dividir artículos en dos grupos
-    const firstFourArticles = filteredArticles.slice(0, 4);
-    const remainingArticles = filteredArticles.slice(4, 10);
+    const recentArticles = filteredArticles
+        .filter((article) => new Date(article.publishedAt) <= new Date()) // Filtra las noticias con fechas válidas y ya publicadas
+        .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()); // Ordenar de más reciente a más antigua
 
     return (
         <>
-            <div className="grid grid-cols-2 w-4/5 mx-auto p-2">
-                {remainingArticles.map(({ id, title, cover, contenido, publishedAt }) => (
+            <div className="grid w-full grid-cols-2 large-desktop:w-4/5 mx-auto p-2">
+                {recentArticles.slice(0, 6).map(({ id, title, cover, contenido, publishedAt }) => (
                     <div key={id} className="card m-3">
 
                         <div className="mobile:flex desktop:flex large-desktop:flex h-full">
@@ -59,10 +59,10 @@ export const CategoryContent = () => {
                 }
 
             </div >
-            <div className="grid grid-cols-4 w-4/5 mx-auto gap-10 p-4">
+            <div className="grid grid-cols-4 w-full  large-desktop:w-4/5 mx-auto gap-10 p-4">
 
                 {
-                    firstFourArticles.map(({ id, title, cover, contenido }) => (
+                    recentArticles.slice(6, 10).map(({ id, title, cover, contenido }) => (
                         <div key={id}>
                             <Link to={`/article/${id}`} className="no-underline text-inherit">
                                 <div className="card w-full">

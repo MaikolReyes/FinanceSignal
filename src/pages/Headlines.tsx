@@ -41,7 +41,7 @@ export const CarouselPrincipal = () => {
                     data-bs-target="#carouselExampleCaptions"
                     data-bs-slide="prev">
                     <span
-                        className="carousel-control-prev-icon"
+                        className="carousel-control-prev-icon bg-black rounded-md"
                         aria-hidden="true"
                     ></span>
                     <span className="visually-hidden">Previous</span>
@@ -53,7 +53,7 @@ export const CarouselPrincipal = () => {
                     data-bs-slide="next"
                 >
                     <span
-                        className="carousel-control-next-icon"
+                        className="carousel-control-next-icon bg-black rounded-md"
                         aria-hidden="true"
                     ></span>
                     <span className="visually-hidden">Next</span>
@@ -126,7 +126,7 @@ export const NewsDown = () => {
 
     return (
         <div className="grid grid-cols-1 w-full mx-auto tablet:grid-cols-2 desktop:grid-cols-2 large-desktop:grid-cols-2 large-desktop:w-4/5">
-            {recentArticles.slice(7, 15).map(({ id, title, cover, contenido, publishedAt }) => (
+            {recentArticles.slice(8, 14).map(({ id, title, cover, contenido, publishedAt }) => (
                 <div key={id} className="card m-3">
 
                     <div className="mobile:flex desktop:flex large-desktop:flex h-full">
@@ -178,9 +178,9 @@ export const NewsDownLeft = () => {
 
     return (
 
-        <div className="grid mobile:grid-cols-1 desktop:grid-cols-4 large-desktop:grid-cols-4 w-full large-desktop:w-4/5 mx-auto gap-10 p-3">
+        <div className="grid mobile:grid-cols-1 desktop:grid-cols-4 large-desktop:grid-cols-4 w-full large-desktop:w-4/5 mx-auto gap-10 p-3 large-desktop:mb-10 large-desktop:mt-3">
             {
-                recentArticles.slice(6, 10).map(({ title, contenido, cover, id }) => (
+                recentArticles.slice(14, 18).map(({ title, contenido, cover, id }) => (
                     <div key={id}>
                         <Link to={`/article/${id}`} className="no-underline text-inherit">
                             <div className="card w-full">
