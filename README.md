@@ -2,6 +2,8 @@
 
 Bienvenido a mi proyecto de noticias de finanzas y tecnología. Este proyecto está diseñado para proporcionar información actualizada y relevante para profesionales interesados en finanzas, tecnología y criptomonedas. Nuestro enfoque es ofrecer contenido preciso y de calidad respaldado por una plataforma moderna y eficiente.
 
+![financesignal netlify app_](https://github.com/user-attachments/assets/3c084e75-dd8c-47b9-b2df-682df49358c3)
+
 ## 🚀 Tecnologías Utilizadas
 
 Este sitio web se ha desarrollado utilizando un stack tecnológico moderno para garantizar alto rendimiento, escalabilidad y facilidad de mantenimiento:
