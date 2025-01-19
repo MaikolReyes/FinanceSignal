@@ -27,3 +27,5 @@ Este sitio web se ha desarrollado utilizando un stack tecnológico moderno para 
 - **Diseño Responsivo**: Optimizado para todos los dispositivos (móviles, tabletas y escritorio).
 - **Gestión de Contenidos**: Panel de administración con Strapi para gestionar artículos, autores y categorías.
 
+📧 Contacto
+Si deseas contactarme, no dudes en escribirme a mi correo: maikolreyes209@gmail.com o conectarte conmigo en LinkedIn https://www.linkedin.com/in/maikol-reyes/.
