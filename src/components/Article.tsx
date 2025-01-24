@@ -25,9 +25,9 @@ export const Article = () => {
     // Mostramos el artículo encontrado
     return (
         <>
-            <div key={article.id} className="flex justify-center flex-col w-full p-4 mx-auto large-desktop:w-1/3 large-desktop:p-0">
+            <div key={article.id} className="flex justify-center flex-col w-full p-4 mx-auto desktop:w-2/4 large-desktop:w-1/3 large-desktop:p-0">
 
-                <h5 className="card-title text-xl font-bold font-secondary large-desktop:mt-5 large-desktop:text-4xl">{article.title}</h5>
+                <h5 className="card-title text-xl font-bold font-secondary desktop:mt-5 desktop:text-2xl large-desktop:mt-5 large-desktop:text-4xl">{article.title}</h5>
 
                 {/* <ul className="list-disc list-inside">
                     <li>Elemento 1</li>

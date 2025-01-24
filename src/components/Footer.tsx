@@ -5,7 +5,7 @@ export const Footer = () => {
     return (
 
 
-        <div className='flex items-center flex-col justify-around p-4 bg-dark' data-aos="fade-up">
+        <div className='flex items-center flex-col justify-around large-desktop:p-4 bg-dark' data-aos="fade-up">
             <img src={logo} alt="Logo de financeSignal" className='w-52 h-auto mx-auto' />
 
             <div className='flex items-center gap-5'>

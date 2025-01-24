@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { useContext, useMemo } from "react";
 import { ArticlesContext } from "../context/ArticlesContext";
 import { DolarWidget } from "./DolarWidget";
+import logo from '../assets/logoFinanceSignal.png';
+
 
 
 export const Navbar = () => {
@@ -19,6 +21,10 @@ export const Navbar = () => {
 
     return (
         <>
+            <Link to={''}>
+                <img src={logo} alt="" className="h-40 mx-auto" />
+            </Link>
+
             <nav className="navbar navbar-expand-lg shadow-md z-10 bg-blue-600">
 
                 <div className="container-fluid">
