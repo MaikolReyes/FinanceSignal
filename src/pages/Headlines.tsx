@@ -24,9 +24,9 @@ export const CarouselPrincipal = () => {
 
                                 <Link to={`/article/${id}`} className="no-underline text-inherit">
                                     <img src={cover} loading="lazy" className="object-fit-cover w-full h-[250px] desktop:h-[450px] large-desktop:h-[500px]" alt="Noticias Recientes" />
-                                    <div className="position-absolute bottom-10 left-[10%] right-[10%] desktop:bottom-12 large-desktop:bottom-10 p-3 flex items-center text-white text-center bg-black bg-opacity-50 rounded-lg ">
-                                        <div className="truncated-text-carousel text-sm desktop:text-base large-desktop:text-lg">
-                                            <h5 className="font-title text-base desktop:text-lg large-desktop:text-xl">{title}</h5>
+                                    <div className="position-absolute bottom-10 left-[10%] right-[10%] desktop:bottom-12 large-desktop:bottom-10 p-3 flex flex-col items-center text-white text-center bg-black bg-opacity-50 rounded-lg ">
+                                        <h5 className="font-title text-base desktop:text-lg large-desktop:text-xl">{title}</h5>
+                                        <div className="truncated-text text-sm desktop:text-base large-desktop:text-lg text-gray-300">
                                             <BlocksRenderer content={contenido} />
                                         </div>
                                     </div>

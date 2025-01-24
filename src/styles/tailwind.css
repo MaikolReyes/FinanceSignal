@@ -17,14 +17,6 @@
   text-overflow: ellipsis;
 }
 
-.truncated-text-carousel {
-  display: -webkit-box;
-  -webkit-line-clamp: 5; /* Número de líneas visibles */
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
 // Widtget
 
 .ticker-container {
