@@ -28,14 +28,14 @@ export const CategoryContent = () => {
 
                         <div className="mobile:flex desktop:flex large-desktop:flex h-full">
                             <div className="desktop:w-2/3 large-desktop:w-1/3">
-                                <Link to={`/article/${id}`} className="no-underline text-inherit">
-                                    <img src={cover} className="h-full object-cover rounded-start" alt="foto" />
+                                <Link to={`/article/${title}`} className="no-underline text-inherit">
+                                    <img src={cover} className="object-cover rounded-start  h-48 large-desktop:h-52 w-full " alt="foto" />
                                 </Link>
                             </div>
 
                             <div className="w-full large-desktop:w-4/5">
                                 <div className="card-body">
-                                    <Link to={`/article/${id}`} className="no-underline text-inherit">
+                                    <Link to={`/article/${title}`} className="no-underline text-inherit">
                                         <h5 className="font-title text-lg large-desktop:text-xl no-underline text-inherit">{title}</h5>
                                     </Link>
                                     <div className="truncated-text font-secondary text-sm desktop:text-base large-desktop:text-lg">
@@ -64,7 +64,7 @@ export const CategoryContent = () => {
                 {
                     recentArticles.slice(6, 10).map(({ id, title, cover, contenido }) => (
                         <div key={id}>
-                            <Link to={`/article/${id}`} className="no-underline text-inherit">
+                            <Link to={`/article/${title}`} className="no-underline text-inherit">
                                 <div className="card w-full">
                                     <img src={cover} className="object-cover rounded-sm h-48 large-desktop:h-52" alt="foto" />
                                     <div className="card-body">

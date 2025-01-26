@@ -49,7 +49,7 @@ export const Navbar = () => {
                             </li>
 
                             {uniqueCategories.sort().map(({ id, name }) => (
-                                <li className="nav-item" key={id}>
+                                <li className="nav-item " key={id}>
                                     <Link className={`${sharedClasses}`}
                                         to={`/category/${name}`}
                                         aria-label={`Ver artículos sobre ${name}`}>
