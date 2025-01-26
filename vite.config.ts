@@ -6,5 +6,8 @@ export default defineConfig({
   plugins: [react()],
   define: {
     'process.env': {}
-  }
+  },
+  build: {
+    outDir: 'dist', // Define explícitamente el directorio de salida
+  },
 })
