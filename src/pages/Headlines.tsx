@@ -85,7 +85,7 @@ export const SidebarPrincipal = () => {
                     <div key={id}>
                         <Link to={`/article/${id}`} className="w-full no-underline text-inherit">
                             <div className="card w-full">
-                                <img src={cover} className="object-fit-cover h-48 large-desktop:h-52" alt="foto" />
+                                <img src={cover} className="object-fit-cover h-48 large-desktop:h-52 w-full rounded-start" alt="foto" />
                                 <div className="card-body">
                                     <h5 className="font-title text-lg large-desktop:text-xl">
                                         {title}
@@ -132,7 +132,7 @@ export const NewsDown = () => {
                     <div className="mobile:flex desktop:flex large-desktop:flex h-full">
                         <div className="desktop:w-2/3 large-desktop:w-1/3">
                             <Link to={`/article/${id}`} className="no-underline text-inherit">
-                                <img src={cover} className="h-full object-fit-cover rounded-start" alt="foto" />
+                                <img src={cover} className="object-fit-cover rounded-start h-48 large-desktop:h-52 w-full" alt="foto" />
                             </Link>
                         </div>
 
@@ -184,7 +184,7 @@ export const NewsDownLeft = () => {
                     <div key={id}>
                         <Link to={`/article/${id}`} className="no-underline text-inherit">
                             <div className="card w-full">
-                                <img src={cover} className="object-fit-cover rounded-sm h-48 large-desktop:h-52" alt="foto" />
+                                <img src={cover} className="object-fit-cover rounded-sm h-48 large-desktop:h-52 w-full" alt="foto" />
                                 <div className="card-body">
                                     <h5 className="font-title text-lg large-desktop:text-xl">{title}</h5>
                                     <div className="truncated-text font-secondary text-sm desktop:text-base large-desktop:text-lg">
