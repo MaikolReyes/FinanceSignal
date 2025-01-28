@@ -6,7 +6,7 @@ import { socialLinks } from "../lib/socialLinks";
 
 export const Article = () => {
     // Obtenemos el `id` de los parámetros de la URL
-    const { title } = useParams<{ title: string }>();
+    const { id } = useParams<{ id: string }>();
 
     // Obtenemos todos los artículos desde el contexto
     const articles = useContext(ArticlesContext);
@@ -15,7 +15,7 @@ export const Article = () => {
         return <p className="text-center">Cargando artículo...</p>;
     }
     // Filtramos el artículo que coincide con el `id`
-    const article = articles.find((article) => article.title.toString() === title);
+    const article = articles.find((article) => article.id.toString() === id);
 
     // Si no se encuentra el artículo, mostramos un mensaje
     if (!article) {
