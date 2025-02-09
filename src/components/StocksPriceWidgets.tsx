@@ -1,8 +1,5 @@
 import { useEffect, useState } from "react";
 
-const API_KEY = "D15eJL02jp45oLAz02VbNHd8KuKLptQr";
-const BASE_URL = "https://api.polygon.io/v2/aggs/ticker/";
-const symbols = ["AAPL", "TSLA", "AMZN", "GOOGL", "MSFT", "NFLX", "META", "SPY", "AMT", "NVDA", "TSM", "BABA", "WMT"]; // Puedes añadir más símbolos si lo deseas
 
 interface StockPrice {
     T: string;
@@ -10,25 +7,23 @@ interface StockPrice {
     o: number;
 }
 
+const API_KEY = "D15eJL02jp45oLAz02VbNHd8KuKLptQr";
+const BASE_URL = "https://api.polygon.io/v2/aggs/ticker/";
+const symbols = ["AAPL", "TSLA", "AMZN", "GOOGL", "MSFT", "NFLX", "META", "SPY", "AMT", "NVDA", "TSM", "BABA", "WMT"]; // Puedes añadir más símbolos si lo deseas
+
+
 export const StocksPriceWidgets = () => {
     const [stocksPrice, setStocksPrice] = useState<StockPrice[]>([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        // Cargar datos desde localStorage si están disponibles
-        const storedStocksPrice = localStorage.getItem("stocksPrice");
-        if (storedStocksPrice) {
-            setStocksPrice(JSON.parse(storedStocksPrice));
-            setLoading(false);
-            return; // No hace falta hacer la llamada a la API si ya tenemos los datos
-        }
 
         const fetchStockPrice = async (symbol: string): Promise<StockPrice | null> => {
+
             try {
                 const response = await fetch(`${BASE_URL}${symbol}/prev?apiKey=${API_KEY}`);
 
                 if (response.status === 429) {
-                    console.warn(`Rate limit exceeded for ${symbol}. Retrying in 60 seconds...`);
                     await new Promise(resolve => setTimeout(resolve, 60000)); // Espera 60s antes de reintentar
                     return fetchStockPrice(symbol); // Reintenta la petición
                 }
@@ -37,13 +32,16 @@ export const StocksPriceWidgets = () => {
                 if (!data.results || data.results.length === 0) return null;
 
                 return { T: symbol, c: data.results[0].c, o: data.results[0].o };
+
             } catch (error) {
+
                 console.error(`Error fetching ${symbol}:`, error);
                 return null;
             }
         };
 
         const fetchAllStocks = async () => {
+
             setLoading(true);
 
             const prices: StockPrice[] = [];
@@ -62,7 +60,7 @@ export const StocksPriceWidgets = () => {
                     }
 
                     // Espera 12 segundos entre cada solicitud dentro de un lote para no exceder el límite de 5 llamadas por minuto
-                    await new Promise(resolve => setTimeout(resolve, 15000)); // Espera 12s entre solicitudes
+                    await new Promise(resolve => setTimeout(resolve, 15000)); // Espera 15s entre solicitudes
                 }
 
                 // Añadir los resultados del lote al array global de precios
@@ -93,7 +91,7 @@ export const StocksPriceWidgets = () => {
                         <div key={index} className="ticker-item flex text-white gap-1 px-5">
                             <span className="font-secondary text-sm large-desktop:text-base">{T}:</span>
                             <span className="font-secondary text-sm large-desktop:text-base">{c.toFixed(2)}</span>
-                            <span className="font-secondary text-sm large-desktop:text-base">{o}</span>
+                            <span className="font-secondary text-sm large-desktop:text-base">{o.toFixed(2)}</span>
                         </div>
                     ))}
                 </div>
