@@ -15,7 +15,7 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<LatestNews />} />
-            <Route path="/article/:id" element={<Article />} />
+            <Route path="/article/:title" element={<Article />} />
             <Route path="/category/:categoryName" element={<CategoryContent />} />
             <Route path="/category/Ultimas Noticias" element={<Navigate to="/" />} />
           </Routes>

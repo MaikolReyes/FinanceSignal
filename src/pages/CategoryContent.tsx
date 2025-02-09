@@ -28,14 +28,14 @@ export const CategoryContent = () => {
 
                         <div className="mobile:flex desktop:flex large-desktop:flex h-full">
                             <div className="desktop:w-2/3 large-desktop:w-1/3">
-                                <Link to={`/article/${id}`} className="no-underline text-inherit">
+                                <Link to={`/article/${title}`} className="no-underline text-inherit">
                                     <img src={cover} className="object-fit-cover rounded-start h-full w-full" alt="foto" />
                                 </Link>
                             </div>
 
                             <div className="w-full large-desktop:w-4/5">
                                 <div className="card-body">
-                                    <Link to={`/article/${id}`} className="no-underline text-inherit">
+                                    <Link to={`/article/${title}`} className="no-underline text-inherit">
                                         <h5 className="font-title text-lg large-desktop:text-xl no-underline text-inherit">{title}</h5>
                                     </Link>
                                     <div className="truncated-text font-secondary text-sm desktop:text-base large-desktop:text-lg">

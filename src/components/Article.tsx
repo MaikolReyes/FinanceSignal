@@ -6,7 +6,7 @@ import { socialLinks } from "../lib/socialLinks";
 
 export const Article = () => {
     // Obtenemos el `id` de los parámetros de la URL
-    const { id } = useParams<{ id: string }>();
+    const { title } = useParams<{ title: string }>();
 
     // Obtenemos todos los artículos desde el contexto
     const articles = useContext(ArticlesContext);
@@ -15,7 +15,7 @@ export const Article = () => {
         return <p className="text-center">Cargando artículo...</p>;
     }
     // Filtramos el artículo que coincide con el `id`
-    const article = articles.find((article) => article.id.toString() === id);
+    const article = articles.find((article) => article.title === title);
 
     // Si no se encuentra el artículo, mostramos un mensaje
     if (!article) {
@@ -71,23 +71,6 @@ export const Article = () => {
                 </div>
             </div>
 
-            {/* <div className="grid mobile:grid-cols-1 desktop:grid-cols-2 large-desktop:grid-cols-2 w-full p-4 mx-auto desktop:w-2/4 large-desktop:w-1/3 large-desktop:p-0 gap-5">
-                {articles.slice(0, 2).map((article) => (
-                    <div key={article.id}>
-                        <Link to={`/article/${title}`} className="no-underline text-inherit">
-                            <div className="card w-full">
-                                <img src={article.cover} className="object-fit-cover rounded-sm h-48 large-desktop:h-52 w-full" alt="foto" />
-                                <div className="card-body">
-                                    <h5 className="font-title text-lg large-desktop:text-xl">{title}</h5>
-                                    <div className="truncated-text font-secondary text-sm desktop:text-base large-desktop:text-lg">
-                                        <BlocksRenderer content={article.contenido} />
-                                    </div>
-                                </div>
-                            </div>
-                        </Link>
-                    </div>
-                ))}
-            </div> */}
         </>
     );
 };

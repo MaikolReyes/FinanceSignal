@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { useContext, useMemo } from "react";
 import { ArticlesContext } from "../context/ArticlesContext";
-import { DolarWidget } from "./DolarWidget";
+// import { DolarWidget } from "./DolarWidget";
 import logo from '../assets/logoFinanceSignal.png';
-
+import { StocksPriceWidgets } from "./StocksPriceWidgets";
 
 
 export const Navbar = () => {
@@ -62,7 +62,10 @@ export const Navbar = () => {
                     </div>
                 </div>
             </nav>
-            <DolarWidget />
+            {/* <DolarWidget /> */}
+
+            <StocksPriceWidgets />
+
         </>
     )
 }
