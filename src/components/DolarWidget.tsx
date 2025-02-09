@@ -9,8 +9,6 @@ export const DolarWidget = () => {
             .then(data => setDolarApi(data))
     }, [])
 
-    console.log(dolarApi)
-
     return (
         <div className="ticker-container overflow-hidden bg-dark p-2">
             <div className="ticker-wrapper flex whitespace-nowrap">
