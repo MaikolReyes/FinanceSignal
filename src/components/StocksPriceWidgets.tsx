@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+const API_KEY = import.meta.env.API_KEY_STOCKS;
 
 interface StockPrice {
     T: string;
@@ -7,9 +7,8 @@ interface StockPrice {
     o: number;
 }
 
-const API_KEY = "D15eJL02jp45oLAz02VbNHd8KuKLptQr";
 const BASE_URL = "https://api.polygon.io/v2/aggs/ticker/";
-const symbols = ["AAPL", "TSLA", "AMZN", "GOOGL", "MSFT", "NFLX", "META", "SPY", "AMT", "NVDA", "TSM", "BABA", "WMT"]; // Puedes añadir más símbolos si lo deseas
+const symbols = ["AAPL", "TSLA", "AMZN", "GOOGL", "MSFT"]; // Puedes añadir más símbolos si lo deseas
 
 
 export const StocksPriceWidgets = () => {
@@ -40,45 +39,6 @@ export const StocksPriceWidgets = () => {
             }
         };
 
-        const fetchAllStocks = async () => {
-
-            setLoading(true);
-
-            const prices: StockPrice[] = [];
-
-            // Agrupar en lotes de 5 para cumplir con el límite de la API
-            for (let i = 0; i < symbols.length; i += 5) {
-                const batch = symbols.slice(i, i + 5); // Obtener un lote de hasta 5 símbolos
-
-                const batchResults: StockPrice[] = [];
-
-                // Fetch cada símbolo en el lote
-                for (const symbol of batch) {
-                    const result = await fetchStockPrice(symbol);
-                    if (result) {
-                        batchResults.push(result);
-                    }
-
-                    // Espera 12 segundos entre cada solicitud dentro de un lote para no exceder el límite de 5 llamadas por minuto
-                    await new Promise(resolve => setTimeout(resolve, 15000)); // Espera 15s entre solicitudes
-                }
-
-                // Añadir los resultados del lote al array global de precios
-                prices.push(...batchResults);
-                setStocksPrice([...prices]); // Actualiza el estado con los resultados del lote
-
-                // Espera 60 segundos antes de hacer el siguiente lote
-                if (i + 5 < symbols.length) {
-                    await new Promise(resolve => setTimeout(resolve, 60000)); // Espera 60s entre lotes
-                }
-            }
-
-            localStorage.setItem("stocksPrice", JSON.stringify(prices)); // Guarda los precios en localStorage
-            setLoading(false);
-        };
-
-        // Solo se ejecuta si no hay datos en el localStorage
-        fetchAllStocks();
     }, []); // Se ejecuta solo cuando el componente se monta
 
     return (
