@@ -64,7 +64,7 @@ export const CategoryContent = () => {
                 {
                     recentArticles.slice(6, 10).map(({ id, title, cover, contenido }) => (
                         <div key={id}>
-                            <Link to={`/article/${id}`} className="no-underline text-inherit">
+                            <Link to={`/article/${title}`} className="no-underline text-inherit">
                                 <div className="card w-full">
                                     <img src={cover} className="object-cover rounded-sm h-48 large-desktop:h-52" alt="foto" />
                                     <div className="card-body">

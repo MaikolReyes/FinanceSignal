@@ -182,7 +182,7 @@ export const NewsDownLeft = () => {
             {
                 recentArticles.slice(14, 18).map(({ title, contenido, cover, id }) => (
                     <div key={id}>
-                        <Link to={`/article/${id}`} className="no-underline text-inherit">
+                        <Link to={`/article/${title}`} className="no-underline text-inherit">
                             <div className="card w-full">
                                 <img src={cover} className="object-fit-cover rounded-sm h-48 large-desktop:h-52 w-full" alt="foto" />
                                 <div className="card-body">
