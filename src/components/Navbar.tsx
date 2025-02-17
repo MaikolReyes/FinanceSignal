@@ -11,12 +11,20 @@ export const Navbar = () => {
 
     const articles = useContext(ArticlesContext);
 
-    // Extraer categorías únicas utilizando useMemo para evitar recálculos innecesarios
+    const currentLanguage = "es"; // Cambiar dinámicamente según el idioma del usuario
+
     const uniqueCategories = useMemo(() => {
         return Array.from(
-            new Map(articles.map(({ category }) => [category?.name, category])).values()
-        ).sort((a, b) => a.name.localeCompare(b.name)); // Ordenar categorías por nombre
-    }, [articles]); // Solo recalcular si `articles` cambia
+            new Map(
+                articles
+                    .map(({ category }) => category)
+                    .filter(category => category?.locale === currentLanguage) // Filtrar por idioma actual
+                    .map(category => [category.name, category]) // Evitar duplicados
+            ).values()
+        ).sort((a, b) => a.name.localeCompare(b.name));
+    }, [articles, currentLanguage]); // Se recalcula si cambia el idioma
+
+
 
     return (
         <>

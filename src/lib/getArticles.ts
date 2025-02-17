@@ -1,8 +1,8 @@
 import { query } from "./strapi";
-const STRAPI_HOST = import.meta.env.VITE_STRAPI_HOST;
+
 
 export function getArticles() {
-    return query("articles?pagination[limit]=100&pagination[start]=0&populate[imagen]=true&populate[category]=true")
+    return query("articles?_locale=es&pagination[limit]=100&pagination[start]=0&populate[imagen]=true&populate[category]=true")
         .then(res => {
 
             // Iteramos sobre los artículos
@@ -11,7 +11,7 @@ export function getArticles() {
                 const { id, title, category, contenido, className, resumen, imagen, publishedAt } = article;
 
                 // Aseguramos que la URL de la imagen esté definida
-                const cover = `${STRAPI_HOST}${imagen.url}`;
+                const cover = `${imagen?.url}`;
 
                 return { id, title, category, contenido, className, resumen, cover, publishedAt };
             });

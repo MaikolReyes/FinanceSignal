@@ -12,5 +12,6 @@ export interface Article {
         createdAt: string;
         updatedAt: string;
         documentId: string;
+        locale: string;
     };
 }
