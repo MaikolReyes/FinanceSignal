@@ -1,13 +1,15 @@
 import { Link } from "react-router-dom";
 import { useContext, useMemo } from "react";
 import { ArticlesContext } from "../context/ArticlesContext";
-import { DolarWidget } from "./DolarWidget";
+import { TickerList } from "./CryptoWidget";
 import logo from '../assets/logoFinanceSignal.png';
 
 
 export const Navbar = () => {
 
     const sharedClasses = "nav-link text-white font-secondary";
+
+    // const [language, setLanguage] = useState('es');
 
     const articles = useContext(ArticlesContext);
 
@@ -69,7 +71,7 @@ export const Navbar = () => {
                     </div>
                 </div>
             </nav>
-            <DolarWidget />
+            <TickerList />
 
         </>
     )

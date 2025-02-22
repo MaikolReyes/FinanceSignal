@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Navbar, Footer } from "./components"
 import { LatestNews } from "./pages"
 import { ArticlesProvider } from './context/ArticlesProvider';
@@ -11,13 +11,12 @@ function App() {
     <>
 
       <ArticlesProvider>
-        <Router>
+        <Router basename='/'>
           <Navbar />
           <Routes>
             <Route path="/" element={<LatestNews />} />
             <Route path="/article/:title" element={<Article />} />
             <Route path="/category/:categoryName" element={<CategoryContent />} />
-            <Route path="/category/Ultimas Noticias" element={<Navigate to="/" />} />
           </Routes>
           <Footer />
         </Router>

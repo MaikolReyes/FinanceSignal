@@ -27,7 +27,6 @@
 
 .ticker-wrapper {
   display: flex;
-  gap: 30px; /* Espacio entre los elementos */
   animation: scroll 30s linear infinite; /* Duración uniforme */
 }
 
@@ -80,6 +79,10 @@
   .collapse.show {
     visibility: visible;
     height: auto;
+  }
+
+  .ticker-wrapper {
+    animation: scroll 10s linear infinite; /* Duración uniforme */
   }
 
   .truncated-text-carousel {
