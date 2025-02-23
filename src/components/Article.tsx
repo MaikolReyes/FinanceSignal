@@ -9,7 +9,7 @@ export const Article = () => {
     const { title } = useParams<{ title: string }>();
 
     // Obtenemos todos los artículos desde el contexto
-    const articles = useContext(ArticlesContext);
+    const { articles } = useContext(ArticlesContext);
 
     if (!articles || articles.length === 0) {
         return <p className="text-center">Cargando artículo...</p>;
