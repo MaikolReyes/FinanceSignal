@@ -1,5 +1,9 @@
 import { createContext } from 'react';
-import { Article } from './InterfaceArticle';
+import { ArticlesContextProps } from './InterfaceArticle';
 
 
-export const ArticlesContext = createContext<Article[]>([]);
+export const ArticlesContext = createContext<ArticlesContextProps>({
+    articles: [],
+    language: 'es',
+    setLanguage: () => { }
+});

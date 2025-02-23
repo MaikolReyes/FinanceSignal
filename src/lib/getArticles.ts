@@ -1,8 +1,8 @@
 import { query } from "./strapi";
 
 
-export function getArticles() {
-    return query("articles?_locale=es&pagination[limit]=100&pagination[start]=0&populate[imagen]=true&populate[category]=true")
+export function getArticles(language: string = 'es') {
+    return query(`articles?locale=${language}&pagination[limit]=100&pagination[start]=0&populate[imagen]=true&populate[category]=true`)
         .then(res => {
 
             // Iteramos sobre los artículos

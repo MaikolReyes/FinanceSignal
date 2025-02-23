@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 export const CarouselPrincipal = () => {
 
-    const articles = useContext(ArticlesContext);
+    const { articles } = useContext(ArticlesContext);
 
     // Filtrar y ordenar las noticias por fecha de publicación
     const recentArticles = articles
@@ -68,7 +68,8 @@ export const CarouselPrincipal = () => {
 
 export const SidebarPrincipal = () => {
 
-    const articles = useContext(ArticlesContext);
+    const { articles } = useContext(ArticlesContext);
+
 
     // Filtrar y ordenar las noticias por fecha de publicación
     const recentArticles = articles
@@ -117,7 +118,8 @@ export const SidebarPrincipal = () => {
 
 export const NewsDown = () => {
 
-    const articles = useContext(ArticlesContext);
+    const { articles } = useContext(ArticlesContext);
+
 
     // Filtrar y ordenar las noticias por fecha de publicación
     const recentArticles = articles
@@ -169,7 +171,8 @@ export const NewsDown = () => {
 
 export const NewsDownLeft = () => {
 
-    const articles = useContext(ArticlesContext);
+    const { articles } = useContext(ArticlesContext);
+
 
     // Filtrar y ordenar las noticias por fecha de publicación
     const recentArticles = articles

@@ -38,7 +38,7 @@ export const TickerList = () => {
     return (
         <div className="ticker-container overflow-hidden bg-dark p-2">
             <div className="ticker-wrapper flex whitespace-nowrap">
-                {tickers.slice(0, 10).map(({ symbol, price }, index) => {
+                {tickers.slice(0, 15).map(({ symbol, price }, index) => {
                     // Extraer el nombre de la criptomoneda eliminando la parte "USDT"
                     const cryptoName = symbol.replace('USDT', '');
                     return (

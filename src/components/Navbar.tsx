@@ -3,30 +3,26 @@ import { useContext, useMemo } from "react";
 import { ArticlesContext } from "../context/ArticlesContext";
 import { TickerList } from "./CryptoWidget";
 import logo from '../assets/logoFinanceSignal.png';
+import { DarkMode } from "./DarkMode";
 
 
 export const Navbar = () => {
 
     const sharedClasses = "nav-link text-white font-secondary";
 
-    // const [language, setLanguage] = useState('es');
+    const { articles, language, setLanguage } = useContext(ArticlesContext);
 
-    const articles = useContext(ArticlesContext);
-
-    const currentLanguage = "es"; // Cambiar dinámicamente según el idioma del usuario
-
+    // Filtrar categorías únicas según el idioma
     const uniqueCategories = useMemo(() => {
         return Array.from(
             new Map(
                 articles
                     .map(({ category }) => category)
-                    .filter(category => category?.locale === currentLanguage) // Filtrar por idioma actual
+                    .filter(category => category?.locale === language) // Filtrar por idioma actual
                     .map(category => [category.name, category]) // Evitar duplicados
             ).values()
         ).sort((a, b) => a.name.localeCompare(b.name));
-    }, [articles, currentLanguage]); // Se recalcula si cambia el idioma
-
-
+    }, [articles, language]);
 
     return (
         <>
@@ -48,14 +44,25 @@ export const Navbar = () => {
                         <span className="navbar-toggler-icon"></span>
                     </button>
 
-                    <div className="collapse navbar-collapse" id="navbarNav">
+                    <div className="collapse navbar-collapse mx-auto" id="navbarNav">
                         <ul className="navbar-nav text-center" >
-                            <li className="nav-item">
-                                <Link to={''} className={`${sharedClasses}`}
-                                    aria-current="page">
-                                    Últimas noticias
-                                </Link>
-                            </li>
+
+                            {/* Aquí se debe agregar un condicional para mostrar el texto en español o en inglés */}
+                            {language === 'es' ?
+                                <li className="nav-item">
+                                    <Link to={''} className={`${sharedClasses}`}
+                                        aria-current="page">
+                                        Últimas noticias
+                                    </Link>
+                                </li> :
+                                <li className="nav-item">
+                                    <Link to={''} className={`${sharedClasses}`}
+                                        aria-current="page">
+                                        Latest News
+                                    </Link>
+                                </li>
+                            }
+
 
                             {uniqueCategories.sort().map(({ id, name }) => (
                                 <li className="nav-item " key={id}>
@@ -68,9 +75,32 @@ export const Navbar = () => {
                             ))}
 
                         </ul>
+
                     </div>
+                    <div className="dropdown mr-5">
+                        <button className="btn bg-blue-600 dropdown-toggle text-white" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i className="fa-solid fa-earth-americas mr-2"></i>
+                            {language === 'es' ? 'Español' : 'English'}
+                        </button>
+                        <ul className="dropdown-menu">
+                            <li>
+                                <a className="dropdown-item" href="#" onClick={() => setLanguage('es')}>
+                                    Español
+                                </a>
+                            </li>
+                            <li>
+                                <a className="dropdown-item" href="#" onClick={() => setLanguage('en')}>
+                                    English
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <DarkMode />
                 </div>
+
             </nav>
+
             <TickerList />
 
         </>

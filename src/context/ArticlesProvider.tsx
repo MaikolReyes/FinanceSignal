@@ -10,18 +10,21 @@ type ArticlesProviderProps = {
 export const ArticlesProvider = ({ children }: ArticlesProviderProps) => {
 
     const [articles, setArticles] = useState<Article[]>([]);
+    const [language, setLanguage] = useState<string>('es');
 
     useEffect(() => {
-        getArticles()
-            .then((res) => {
-                setArticles(res)
+
+        getArticles(language)
+            .then(data => {
+                setArticles([...data]); // Asegurar que React detecte un nuevo array
             })
-    }, [])
+            .catch(err => console.error('Error fetching articles:', err));
+    }, [language]);
 
 
     return (
-        <ArticlesContext.Provider value={articles}>
+        <ArticlesContext.Provider value={{ articles, language, setLanguage }}>
             {children}
         </ArticlesContext.Provider>
-    )
+    );
 }

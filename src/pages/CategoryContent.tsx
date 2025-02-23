@@ -9,7 +9,8 @@ export const CategoryContent = () => {
     const { categoryName } = useParams<{ categoryName: string }>();
 
 
-    const articles = useContext(ArticlesContext);
+    const { articles } = useContext(ArticlesContext);
+
 
     // Filtrar artículos por categoría con validación
     const filteredArticles = articles.filter((article) => {
