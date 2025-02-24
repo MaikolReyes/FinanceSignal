@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 export const DarkMode = () => {
+
     const [darkMode, setDarkMode] = useState(false);
 
     // Efecto para aplicar o remover la clase 'dark-mode' en el body
@@ -21,9 +22,9 @@ export const DarkMode = () => {
             />
             <span className="slider">
                 {darkMode ? (
-                    <i className="fa-solid fa-moon mx-auto" style={{ color: '#fff' }}></i>
-                ) : (
                     <i className="fa-solid fa-sun" style={{ color: '#ffc107' }}></i>
+                ) : (
+                    <i className="fa-solid fa-moon mx-auto" style={{ color: 'black' }}></i>
                 )}
             </span>
         </label>
