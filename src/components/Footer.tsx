@@ -5,7 +5,8 @@ export const Footer = () => {
     return (
 
 
-        <div className='flex items-center flex-col justify-around large-desktop:p-4 bg-dark' data-aos="fade-up">
+        <footer className='flex items-center flex-col justify-around large-desktop:p-4 bg-dark' data-aos="fade-up">
+
             <img src={logo} alt="Logo de financeSignal" className='w-52 h-auto mx-auto' />
 
             <div className='flex items-center gap-5'>
@@ -20,11 +21,11 @@ export const Footer = () => {
                 }
             </div>
 
-            <span className='font-secondary text-lg text-center text-white mt-5'>
+            <span className='font-secondary mobile:text-base text-lg text-center text-white mt-5'>
                 © 2025 Copyright FinanceSignal
             </span>
 
-        </div >
+        </footer >
 
     );
 };

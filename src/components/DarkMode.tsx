@@ -1,17 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext } from "react";
+import { DarkModeContext } from "../context/DarkModeContext";
 
 export const DarkMode = () => {
 
-    const [darkMode, setDarkMode] = useState(false);
-
+    const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
     // Efecto para aplicar o remover la clase 'dark-mode' en el body
-    useEffect(() => {
-        document.body.classList.toggle('dark-mode', darkMode);
-    }, [darkMode]);
-
-    const toggleDarkMode = () => {
-        setDarkMode(prev => !prev);
-    };
 
     return (
         <label className="toggle-switch">
