@@ -11,7 +11,8 @@ export const CategoryContent = () => {
         <>
             <div className="grid grid-cols-1 w-full mx-auto tablet:grid-cols-2 large-desktop:w-4/5">
 
-                {recentArticles.slice(0, 6).map(({ id, title, cover, contenido, publishedAt }) => {
+                {recentArticles.slice(0, 8).map(({ id, title, cover, contenido, publishedAt }) => {
+
                     const formattedDate = new Intl.DateTimeFormat('es-ES', {
                         year: 'numeric',
                         month: 'short',
@@ -19,11 +20,11 @@ export const CategoryContent = () => {
                     }).format(new Date(publishedAt));
 
                     return (
-                        <div key={id} className="card m-3 max-h-[200px]">
+                        <div key={id} className="card m-3">
                             <div className="mobile:flex desktop:flex large-desktop:flex h-full">
                                 <div className="desktop:w-2/3 large-desktop:w-1/3">
                                     <Link to={`/article/${title}`} className="no-underline text-inherit">
-                                        <img src={cover} className="object-fit-cover rounded-start h-full w-full" alt="foto" />
+                                        <img src={cover} className="object-fit-cover rounded-sm h-48 large-desktop:h-52 w-full" alt="foto" />
                                     </Link>
                                 </div>
 
@@ -35,7 +36,7 @@ export const CategoryContent = () => {
                                         <div className="truncated-text font-secondary text-sm desktop:text-base large-desktop:text-lg">
                                             <BlocksRenderer content={contenido} />
                                         </div>
-                                        <p className="card-text"><small className="text-body-secondary">{formattedDate}</small></p>
+                                        <p className="card-text"><small className="text-date">{formattedDate}</small></p>
                                     </div>
                                 </div>
                             </div>
@@ -48,7 +49,7 @@ export const CategoryContent = () => {
 
             <div className="grid grid-cols-1 tablet:grid-cols-4 w-full large-desktop:w-4/5 mx-auto gap-10 p-3 large-desktop:mt-3 large-desktop:mb-10">
                 {
-                    recentArticles.slice(6, 10).map(({ id, title, cover, contenido }) => (
+                    recentArticles.slice(8, 12).map(({ id, title, cover, contenido }) => (
                         <div key={id}>
                             <Link to={`/article/${title}`} className="no-underline text-inherit">
                                 <div className="card w-full">

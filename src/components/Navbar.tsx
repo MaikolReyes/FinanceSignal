@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
 import { useContext, useMemo } from "react";
 import { ArticlesContext } from "../context/ArticlesContext";
-import { TickerList } from "./CryptoWidget";
-import { DarkMode } from "./DarkMode";
 import { DarkModeContext } from "../context/DarkModeContext";
 import lightLogo from '../assets/logoFinanceSignal.png';
 import darkLogo from '../assets/logoFinanceSignal-white.png';
-import { ButtonLanguages } from "./ButtonLanguages";
+import { CryptoWidget } from "./CryptoWidget";
+import { ButtonLanguages, DarkMode } from "../controls";
 
 
 
@@ -14,7 +13,7 @@ export const Navbar = () => {
 
     const { darkMode } = useContext(DarkModeContext);
 
-    const sharedClasses = "nav-link text-white font-secondary";
+    const sharedClasses = "nav-link font-secondary";
 
     const { articles, language } = useContext(ArticlesContext);
 
@@ -56,13 +55,13 @@ export const Navbar = () => {
                             {/* Aquí se debe agregar un condicional para mostrar el texto en español o en inglés */}
                             {language === 'es' ?
                                 <li className="nav-item">
-                                    <Link to={''} className={`${sharedClasses}`}
+                                    <Link to={''} className={`text-white hover:!text-gray-200 ${sharedClasses}`}
                                         aria-current="page">
                                         Últimas noticias
                                     </Link>
                                 </li> :
                                 <li className="nav-item">
-                                    <Link to={''} className={`${sharedClasses}`}
+                                    <Link to={''} className={`text-white hover:!text-gray-200 ${sharedClasses}`}
                                         aria-current="page">
                                         Latest News
                                     </Link>
@@ -70,27 +69,33 @@ export const Navbar = () => {
                             }
 
 
-                            {uniqueCategories.sort().map(({ id, name }) => (
-                                <li className="nav-item " key={id}>
-                                    <Link className={`${sharedClasses}`}
-                                        to={`/category/${name}`}
-                                        aria-label={`Ver artículos sobre ${name}`}>
-                                        {name}
-                                    </Link>
-                                </li>
-                            ))}
-
+                            {uniqueCategories
+                                .slice()
+                                .sort((a, b) => a.name.localeCompare(b.name))
+                                .map(({ id, name }) => (
+                                    <li className="nav-item" key={id}>
+                                        <Link
+                                            className={`${sharedClasses} text-white hover:!text-gray-200`}
+                                            to={`/category/${name}`}
+                                            aria-label={`Ver artículos sobre ${name}`}
+                                        >
+                                            {name}
+                                        </Link>
+                                    </li>
+                                ))}
                         </ul>
+
+                    </div>
+                    <div className="d-flex relative desktop:absolute right-0 p-3 gap-x-3 mx-0">
+                        <ButtonLanguages />
+                        <DarkMode />
                     </div>
                 </div>
 
-                <div className="d-flex position-absolute  right-0 p-3">
-                    <ButtonLanguages />
-                    <DarkMode />
-                </div>
+
             </nav>
 
-            <TickerList />
+            <CryptoWidget />
 
         </>
     )

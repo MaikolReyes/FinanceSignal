@@ -18,7 +18,7 @@ export const CarouselSlider = () => {
                                 <Link to={`/article/${title}`} className="no-underline text-inherit position-relative">
 
                                     <img src={cover} loading="lazy" className="object-fit-cover w-full h-[250px] desktop:h-[450px] large-desktop:h-[500px]" alt="Noticias Recientes" />
-                                    <div className="position-absolute bottom-10 left-[10%] right-[10%] desktop:bottom-12 large-desktop:bottom-10 p-3 flex flex-col items-center text-white text-center bg-black bg-opacity-50 rounded-lg ">
+                                    <div className="position-absolute bottom-10 left-[10%] right-[10%] desktop:bottom-12 p-3 flex flex-col items-center text-white text-center bg-black bg-opacity-50 rounded-lg ">
                                         <h5 className="font-title text-base desktop:text-lg large-desktop:text-xl">{title}</h5>
                                         <div className="truncated-text text-sm desktop:text-base large-desktop:text-lg text-gray-300">
                                             <BlocksRenderer content={contenido} />

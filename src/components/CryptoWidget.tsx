@@ -5,7 +5,7 @@ interface Ticker {
     price: string;
 }
 
-export const TickerList = () => {
+export const CryptoWidget = () => {
     const [tickers, setTickers] = useState<Ticker[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);

@@ -22,9 +22,14 @@ export const Article = () => {
         return <p className="text-center">El artículo no existe o no se ha encontrado.</p>;
     }
 
+    const formattedDate = new Intl.DateTimeFormat('es-ES', {
+        year: 'numeric',
+        month: 'short',
+        day: '2-digit'
+    }).format(new Date(article.publishedAt));
     // Mostramos el artículo encontrado
     return (
-        <>
+    
             <div key={article.id} className="flex justify-center flex-col w-full p-4 mx-auto desktop:w-2/4 large-desktop:w-1/3 large-desktop:p-0">
 
                 <h5 className="card-title text-xl font-bold font-secondary desktop:mt-5 desktop:text-2xl large-desktop:mt-5 large-desktop:text-4xl">{article.title}</h5>
@@ -36,11 +41,7 @@ export const Article = () => {
 
                 <p className="card-text text-xl p-2">
                     <small className="text-body-secondary">
-                        {new Intl.DateTimeFormat('es-ES', {
-                            year: 'numeric',
-                            month: 'short',
-                            day: '2-digit'
-                        }).format(new Date(article.publishedAt))}
+                        {formattedDate}
                     </small>
                 </p>
 
@@ -65,13 +66,11 @@ export const Article = () => {
                 <div className="border-t-2 border-gray-400 mt-1 my-3"></div>
 
                 <div className="card-body">
-                    <div className="card-text font-secondary text-sm desktop:text-base large-desktop:text-lg mb-5">
+                    <div className="card-text font-secondary text-base large-desktop:text-lg mb-5">
                         <BlocksRenderer content={article.contenido} />
                     </div>
                 </div>
             </div>
-
-        </>
     );
 };
 

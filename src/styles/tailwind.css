@@ -139,4 +139,21 @@ body.dark-mode {
   color: #e0e0e0;
 }
 
+body.dark-mode .card {
+  background-color: #1e2a33; /* Color oscuro para la card */
+  color: #e0e0e0; /* Texto claro para contraste */
+  border: 1px solid #2a3b47; /* Borde más visible en modo oscuro */
+}
+
+body.dark-mode .truncated-text {
+  color: #b0b0b0;
+}
+
+body.dark-mode small {
+  color: white;
+}
+
+body.dark-mode .fa-brands {
+  color: white;
+}
 /* Ajusta otros estilos según necesites */
