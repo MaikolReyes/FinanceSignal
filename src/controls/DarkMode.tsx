@@ -12,7 +12,9 @@ export const DarkMode = () => {
                 id="toggle-checkbox"
                 checked={darkMode}
                 onChange={toggleDarkMode}
+                aria-label="Activar/desactivar modo oscuro"
             />
+
             <span className="slider">
                 {darkMode ? (
                     <i className="fa-solid fa-sun" style={{ color: '#ffc107' }}></i>
@@ -20,6 +22,7 @@ export const DarkMode = () => {
                     <i className="fa-solid fa-moon mx-auto" style={{ color: 'black' }}></i>
                 )}
             </span>
+
         </label>
     );
 };
