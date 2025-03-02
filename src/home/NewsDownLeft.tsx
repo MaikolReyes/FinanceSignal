@@ -25,7 +25,7 @@ export const NewsDownLeft = () => {
                             <div className="card w-full">
                                 <img src={cover} className="object-fit-cover rounded-sm h-48 large-desktop:h-52 w-full" alt="foto" />
                                 <div className="card-body">
-                                    <h5 className="font-title text-lg large-desktop:text-xl">{title}</h5>
+                                    <h5 className="font-title text-base large-desktop:text-xl">{title}</h5>
                                     <div className="truncated-text font-secondary text-sm desktop:text-base large-desktop:text-lg">
                                         <BlocksRenderer content={contenido} />
                                     </div>

@@ -86,7 +86,7 @@ export const Navbar = () => {
                         </ul>
 
                     </div>
-                    <div className="d-flex relative desktop:absolute right-0 p-3 gap-x-3 mx-0">
+                    <div className="d-flex relative desktop:absolute desktop:right-10">
                         <ButtonLanguages />
                         <DarkMode />
                     </div>

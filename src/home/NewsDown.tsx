@@ -7,7 +7,7 @@ export const NewsDown = () => {
     const recentArticles = useRecentArticles();
 
     return (
-        <div className="grid grid-cols-1 w-full mx-auto tablet:grid-cols-2 desktop:grid-cols-2 large-desktop:grid-cols-2 large-desktop:w-4/5">
+        <div className="grid grid-cols-1 w-full mx-auto tablet:grid-cols-2 large-desktop:w-4/5">
 
             {recentArticles.slice(8, 24).map(({ id, title, cover, contenido, publishedAt }) => {
 
@@ -20,7 +20,7 @@ export const NewsDown = () => {
 
                 return (
                     <div key={id} className="card m-3">
-                        <div className="mobile:flex desktop:flex large-desktop:flex h-full">
+                        <div className="flex flex-col tablet:flex-row h-full">
                             <div className="desktop:w-2/3 large-desktop:w-1/3">
                                 <Link to={`/article/${title}`} className="no-underline text-inherit">
                                     <img src={cover} className="object-fit-cover rounded-sm h-48 large-desktop:h-52 w-full" alt="foto" />
