@@ -4,12 +4,12 @@ import { DarkModeContext } from "../context/DarkModeContext";
 export const DarkMode = () => {
 
     const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
-    // Efecto para aplicar o remover la clase 'dark-mode' en el body
 
     return (
-        <label className="toggle-switch">
+        <label className="toggle-switch" htmlFor="toggle-checkbox">
             <input
                 type="checkbox"
+                id="toggle-checkbox"
                 checked={darkMode}
                 onChange={toggleDarkMode}
             />

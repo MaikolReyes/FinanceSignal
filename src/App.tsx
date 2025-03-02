@@ -1,10 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { Navbar, Footer } from "./components"
-import { LatestNews } from "./pages"
-import { ArticlesProvider } from './context/ArticlesProvider';
-import { Article } from './components/Article';
-import { CategoryContent } from './pages/CategoryContent';
-import { DarkModeProvider } from './context/DarkModeProvider';
+import { Navbar, Footer, Article } from "./components"
+import { CategoryContent, LatestNews, Legals, PrivacyPolicy } from "./pages"
+import { ArticlesProvider, DarkModeProvider } from './context';
 
 function App() {
 
@@ -19,6 +16,8 @@ function App() {
               <Route path="/" element={<LatestNews />} />
               <Route path="/article/:title" element={<Article />} />
               <Route path="/category/:categoryName" element={<CategoryContent />} />
+              <Route path="/politica-de-privacidad" element={<PrivacyPolicy />} />
+              <Route path="/aviso-legal" element={<Legals />} />
             </Routes>
             <Footer />
           </Router>

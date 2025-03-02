@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import logo from '../assets/logoFinanceSignal-white.png';
 import { socialLinks } from '../lib/socialLinks';
 
@@ -21,9 +22,22 @@ export const Footer = () => {
                 }
             </div>
 
+
+
             <span className='font-secondary mobile:text-base text-lg text-center text-white mt-5'>
                 © 2025 Copyright FinanceSignal
             </span>
+
+            <div className='flex items-center gap-5'>
+
+                <Link to="/politica-de-privacidad" className="text-blue-400 hover:underline">
+                    Política de Privacidad
+                </Link>
+
+                <Link to="/aviso-legal" className="text-blue-400 hover:underline">
+                    Aviso Legal
+                </Link>
+            </div>
 
         </footer >
 

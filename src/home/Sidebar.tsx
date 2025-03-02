@@ -23,7 +23,7 @@ export const Sidebar = () => {
                     <div key={id}>
                         <Link to={`/article/${title}`} className="w-full no-underline text-inherit">
                             <div className="card w-full">
-                                <img src={cover} className="object-fit-cover h-48 large-desktop:h-52 w-full rounded-start" alt="foto" />
+                                <img src={cover} className="object-fit-cover h-48 large-desktop:h-52 w-full rounded-start" alt="foto" loading="lazy" />
                                 <div className="card-body">
                                     <h5 className="font-title text-base large-desktop:text-xl">
                                         {title}
