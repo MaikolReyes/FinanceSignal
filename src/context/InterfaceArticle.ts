@@ -17,6 +17,8 @@ export interface Article {
     resumen: string;
     cover: string;
     publishedAt: number;
+    locale: string;
+    localizations?: Article[];
 }
 
 export interface ArticlesContextProps {

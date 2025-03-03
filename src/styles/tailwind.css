@@ -27,7 +27,7 @@
 
 .ticker-wrapper {
   display: flex;
-  animation: scroll 30s linear infinite; /* Duración uniforme */
+  animation: scroll 35s linear infinite; /* Duración uniforme */
 }
 
 .ticker-wrapper:hover {
@@ -82,7 +82,7 @@
   }
 
   .ticker-wrapper {
-    animation: scroll 10s linear infinite; /* Duración uniforme */
+    animation: scroll 50s linear infinite; /* Duración uniforme */
   }
 
   .truncated-text-carousel {
