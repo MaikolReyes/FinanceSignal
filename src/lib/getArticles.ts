@@ -2,17 +2,17 @@ import { query } from "./strapi";
 
 
 export function getArticles(language: string = 'es') {
-    return query(`articles?locale=${language}&pagination[limit]=100&pagination[start]=0&populate[imagen]=true&populate[category]=true`)
+    return query(`articles?locale=${language}&pagination[limit]=100&pagination[start]=0&populate[imagen]=true&populate[category]=true&populate[localizations]=true`)
         .then(res => {
             // Iteramos sobre los artículos
-            return res.map((article: { id: string; title: string; category: { name: string }; publishedAt: number; contenido: []; className: string; resumen: string; imagen: { url: string }, locale: string }) => {
+            return res.map((article: { id: string; title: string; category: { name: string }; publishedAt: number; contenido: []; resumen: string; localizations: []; imagen: { url: string }, locale: string }) => {
 
-                const { id, title, category, contenido, className, resumen, imagen, publishedAt, locale } = article;
+                const { id, title, category, contenido,  resumen, imagen, publishedAt, locale, localizations } = article;
 
                 // Aseguramos que la URL de la imagen esté definida
                 const cover = `${imagen?.url}`;
 
-                return { id, title, category, contenido, className, resumen, cover, publishedAt, locale };
+                return { id, title, category, contenido,  resumen, cover, publishedAt, locale, localizations };
             });
         })
 }

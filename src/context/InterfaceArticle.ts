@@ -13,8 +13,6 @@ export interface Article {
     title: string;
     category: Category;
     contenido: [];
-    className: string;
-    resumen: string;
     cover: string;
     publishedAt: number;
     locale: string;
