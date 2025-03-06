@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 export const useCategoryArticles = () => {
 
-    const { categoryName } = useParams<{ categoryName: string }>();
+    const { categoryName } = useParams();
 
     const { articles, language } = useContext(ArticlesContext);
 
@@ -12,16 +12,16 @@ export const useCategoryArticles = () => {
 
     // Buscar la categoría en el idioma actual
     const translatedCategory = useMemo(() => {
-        const category = articles
+
+        return articles
             .map(article => article.category)
-            .find(category => category?.locale === language);
-        return category;
-    }, [articles, language]);
+            .find(category => category?.locale === language && category?.name === categoryName);
+    }, [articles, language, categoryName]);
 
     // Actualizar la URL cuando cambia el idioma
     useEffect(() => {
         if (translatedCategory && translatedCategory.name !== categoryName) {
-            navigate(`/category/${translatedCategory.name}`);
+            navigate(`/category/${translatedCategory.name}`, { replace: true });
         }
     }, [translatedCategory, categoryName, navigate]);
 
@@ -38,6 +38,5 @@ export const useCategoryArticles = () => {
 
     return recentArticles;
 };
-
 
 

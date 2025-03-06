@@ -6,6 +6,7 @@ export interface Category {
     updatedAt: string;
     documentId: string;
     locale: string;
+    localizations?: Category[];
 }
 
 export interface Article {
