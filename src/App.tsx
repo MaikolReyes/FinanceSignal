@@ -2,16 +2,17 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Navbar, Footer, Article } from "./components"
 import { CategoryContent, LatestNews, Legals, PrivacyPolicy } from "./pages"
 import { ArticlesProvider, DarkModeProvider } from './context';
+import CookieConsent from './pages/CookieConsent';
 
 function App() {
 
   return (
     <>
-
       <DarkModeProvider>
         <ArticlesProvider>
           <Router basename='/'>
             <Navbar />
+            <CookieConsent />
             <Routes>
               <Route path="/" element={<LatestNews />} />
               <Route path="/article/:title" element={<Article />} />
