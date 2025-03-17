@@ -43,7 +43,7 @@
     transform: translateX(100%); /* Empieza fuera del contenedor */
   }
   to {
-    transform: translateX(-100%); /* Sale por el otro lado */
+    transform: translateX(-150%); /* Sale por el otro lado */
   }
 }
 
@@ -82,11 +82,20 @@
   }
 
   .ticker-wrapper {
-    animation: scroll 50s linear infinite; /* Duración uniforme */
+    animation: scroll 15s linear infinite; /* Duración uniforme */
   }
 
   .truncated-text-carousel {
     -webkit-line-clamp: 6;
+  }
+
+  @keyframes scroll {
+    from {
+      transform: translateX(100%); /* Empieza fuera del contenedor */
+    }
+    to {
+      transform: translateX(-700%); /* Sale por el otro lado */
+    }
   }
 }
 

@@ -9,7 +9,7 @@ export const CarouselSlider = () => {
     return (
 
         <div className="p-3 mx-auto">
-            <div id="carouselExampleCaptions" className="carousel slide max-w-[800px] h-full overflow-hidden rounded-md">
+            <div id="carouselExampleCaptions" className="carousel slide max-w-[800px] overflow-hidden rounded-md">
                 <div className="carousel-inner m-auto">
                     {
                         recentArticles.slice(0, 4).map(({ id, title, contenido, cover }, index) => (

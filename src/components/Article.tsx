@@ -13,12 +13,12 @@ export const Article = () => {
     // }).format(new Date(currentArticles?.publishedAt));
     // Mostramos el artículo encontrado
 
-    
+
     return (
 
-        <div key={currentArticles?.id} className="flex justify-center flex-col w-full p-4 mx-auto desktop:w-2/4 large-desktop:w-1/3 large-desktop:p-0">
+        <div key={currentArticles?.id} className="flex justify-center flex-col w-full p-4 mx-auto tablet:w-1/3">
 
-            <h5 className="card-title text-xl font-bold font-secondary desktop:mt-5 desktop:text-2xl large-desktop:mt-5 large-desktop:text-4xl">{currentArticles?.title}</h5>
+            <h5 className="card-title text-xl mt-2 font-bold font-secondary desktop:mt-5 tablet:text-3xl ">{currentArticles?.title}</h5>
 
             {/* <ul className="list-disc list-inside">
                     <li>Elemento 1</li>
@@ -48,6 +48,9 @@ export const Article = () => {
                     }
                 </div>
             </div>
+            {/* <a href={`https://www.facebook.com/sharer/sharer.php?u=http://localhost:5173/article/${currentArticles?.title}`} target="_blank">
+                Compartir en Facebook
+            </a> */}
 
             <div className="border-t-2 border-gray-400 mt-1 my-3"></div>
 
