@@ -16,7 +16,7 @@ export const Article = () => {
 
     return (
 
-        <div key={currentArticles?.id} className="flex justify-center flex-col w-full p-4 mx-auto tablet:w-1/3">
+        <div key={currentArticles?.id} className="flex justify-center flex-col w-full p-4 mx-auto tablet:w-2/4 large-desktop:w-1/3">
 
             <h5 className="card-title text-xl mt-2 font-bold font-secondary desktop:mt-5 tablet:text-3xl ">{currentArticles?.title}</h5>
 
