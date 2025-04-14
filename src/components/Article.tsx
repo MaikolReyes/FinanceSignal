@@ -1,7 +1,7 @@
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 import { socialLinks } from "../lib/socialLinks";
 import { useArticlesLanguage } from "../hooks/useArticlesLanguage";
-import { ShareButtons } from "../controls/ShareButtons";
+// import { ShareButtons } from "../controls/ShareButtons";
 import { Helmet } from "react-helmet-async";
 
 export const Article = () => {
@@ -19,7 +19,6 @@ export const Article = () => {
 
     const baseUrl = "https://www.financessignal.com"; // reemplazalo
     const articleUrl = `${baseUrl}/article/${encodeURIComponent(currentArticles?.title || '')}`;
-    const ogImage = currentArticles?.cover?.startsWith('http') ? currentArticles.cover : `${baseUrl}${currentArticles?.cover}`;
 
     // const ogDescription = currentArticles?.contenido
 
@@ -30,13 +29,13 @@ export const Article = () => {
                 <title>{currentArticles?.title}</title>
                 <meta property="og:title" content={currentArticles?.title} />
                 {/* <meta property="og:description" content={ogDescription} /> */}
-                <meta property="og:image" content={ogImage} />
+                <meta property="og:image" content={currentArticles?.cover} />
                 <meta property="og:url" content={articleUrl} />
                 <meta property="og:type" content="article" />
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content={currentArticles?.title} />
                 {/* <meta name="twitter:description" content={ogDescription} /> */}
-                <meta name="twitter:image" content={ogImage} />
+                <meta name="twitter:image" content={currentArticles?.cover} />
             </Helmet>
 
             <div key={currentArticles?.id} className="flex justify-center flex-col w-full p-4 mx-auto tablet:w-2/4 large-desktop:w-1/3">
@@ -71,11 +70,8 @@ export const Article = () => {
                         }
                     </div>
                 </div>
-                {/* <a href={`https://www.facebook.com/sharer/sharer.php?u=http://localhost:5173/article/${currentArticles?.title}`} target="_blank">
-                Compartir en Facebook
-            </a> */}
 
-                <ShareButtons title={currentArticles.title} url={articleUrl} />
+                {/* <ShareButtons title={currentArticles.title} url={articleUrl} /> */}
 
                 <div className="border-t-2 border-gray-400 mt-1 my-3"></div>
 
