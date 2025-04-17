@@ -5,7 +5,7 @@ import { DarkModeContext } from "../context/DarkModeContext";
 import lightLogo from '../assets/logoFinanceSignal.png';
 import darkLogo from '../assets/logoFinanceSignal-white.png';
 import { CryptoWidget } from "./CryptoWidget";
-import { ButtonLanguages, DarkMode } from "../controls";
+import { DarkMode } from "../controls";
 
 
 
@@ -87,7 +87,7 @@ export const Navbar = () => {
 
                     </div>
                     <div className="d-flex relative desktop:absolute desktop:right-10">
-                        <ButtonLanguages />
+                        {/* <ButtonLanguages /> */}
                         <DarkMode />
                     </div>
                 </div>
