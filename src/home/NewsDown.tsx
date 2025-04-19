@@ -9,7 +9,7 @@ export const NewsDown = () => {
     return (
         <div className="grid grid-cols-1 w-full mx-auto tablet:grid-cols-2 large-desktop:w-4/5">
 
-            {recentArticles.slice(8, 24).map(({ id, title, cover, contenido, publishedAt }) => {
+            {recentArticles.slice(8, 20).map(({ id, title, cover, contenido, publishedAt }) => {
 
                 const formattedDate = new Intl.DateTimeFormat('es-ES', {
                     year: 'numeric',
@@ -30,7 +30,7 @@ export const NewsDown = () => {
                             <div className="w-full large-desktop:w-4/5">
                                 <div className="card-body">
                                     <Link to={`/article/${title}`} className="no-underline text-inherit">
-                                        <h5 className="font-title text-lg large-desktop:text-xl no-underline text-inherit">{title}</h5>
+                                        <h5 className="truncated-title font-title text-lg large-desktop:text-xl no-underline text-inherit">{title}</h5>
                                     </Link>
                                     <div className="truncated-text text-gray-600 font-secondary text-sm desktop:text-base large-desktop:text-lg">
                                         <BlocksRenderer content={contenido} />
