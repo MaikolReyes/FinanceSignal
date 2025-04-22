@@ -1,14 +1,20 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 import { useCategoryArticles } from "../hooks/useCategoryArticles";
-
+import { Helmet } from "react-helmet-async";
 
 export const CategoryContent = () => {
 
     const recentArticles = useCategoryArticles();
 
+    const { categoryName } = useParams();
     return (
         <>
+
+            <Helmet>
+                <title>FinanceSignal | {categoryName}</title>
+            </Helmet>
+
             <div className="grid grid-cols-1 w-full mx-auto tablet:grid-cols-2 large-desktop:w-4/5">
 
                 {recentArticles.slice(0, 8).map(({ id, title, cover, contenido, publishedAt }) => {

@@ -9,10 +9,12 @@ export const CarouselSlider = () => {
     return (
 
         <div className="p-3 mx-auto">
+
             <div id="carouselExampleCaptions" className="carousel slide max-w-[800px] overflow-hidden rounded-md">
                 <div className="carousel-inner m-auto">
+
                     {
-                        recentArticles.slice(0, 4).map(({ id, title, contenido, cover }, index) => (
+                        recentArticles.slice(0).map(({ id, title, contenido, cover }, index) => (
                             <div key={id} className={`carousel-item w-full ${index === 0 ? 'active' : ''}`}>
 
                                 <Link to={`/article/${title}`} className="no-underline text-inherit position-relative">
@@ -30,31 +32,9 @@ export const CarouselSlider = () => {
                             </div>
                         ))}
                 </div>
-                <button
-                    className="carousel-control-prev"
-                    type="button"
-                    data-bs-target="#carouselExampleCaptions"
-                    data-bs-slide="prev">
-                    <span
-                        className="carousel-control-prev-icon "
-                        aria-hidden="true"
-                    ></span>
-                    <span className="visually-hidden">Previous</span>
-                </button>
-                <button
-                    className="carousel-control-next"
-                    type="button"
-                    data-bs-target="#carouselExampleCaptions"
-                    data-bs-slide="next"
-                >
-                    <span
-                        className="carousel-control-next-icon "
-                        aria-hidden="true"
-                    ></span>
-                    <span className="visually-hidden">Next</span>
-                </button>
-            </div>
 
+
+            </div >
         </div >
 
     )

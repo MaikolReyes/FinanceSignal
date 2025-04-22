@@ -10,7 +10,7 @@ export const Sidebar = () => {
 
         <div className="grid grid-cols-1 justify-start p-3 gap-3 w-full tablet:grid-cols-2">
 
-            {recentArticles.slice(4, 6).map(({ title, cover, id, contenido, publishedAt }) => {
+            {recentArticles.slice(1, 3).map(({ title, cover, id, contenido, publishedAt }) => {
 
                 const formattedDate = new Intl.DateTimeFormat('es-ES', {
                     year: 'numeric',
@@ -43,7 +43,7 @@ export const Sidebar = () => {
 
 
 
-            {recentArticles.slice(6, 8).map(({ title, id, publishedAt }) => {
+            {recentArticles.slice(3, 5).map(({ title, id, publishedAt }) => {
 
                 const formattedDate = new Intl.DateTimeFormat('es-ES', {
                     year: 'numeric',

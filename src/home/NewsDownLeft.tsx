@@ -10,7 +10,7 @@ export const NewsDownLeft = () => {
     return (
         <div className="grid grid-cols-1 tablet:grid-cols-4 w-full large-desktop:w-4/5 mx-auto gap-10 p-3 large-desktop:mt-3 large-desktop:mb-10">
 
-            {recentArticles.slice(20, 24).map(({ id, title, cover, contenido, publishedAt }) => {
+            {recentArticles.slice(15, 19).map(({ id, title, cover, contenido, publishedAt }) => {
 
                 const formattedDate = new Intl.DateTimeFormat('es-ES', {
                     year: 'numeric',
