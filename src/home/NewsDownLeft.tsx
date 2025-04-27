@@ -23,7 +23,9 @@ export const NewsDownLeft = () => {
                     <div key={id}>
                         <Link to={`/article/${title}`} className="no-underline text-inherit">
                             <div className="card w-full">
-                                <img src={cover} className="object-cover rounded-sm h-48 large-desktop:h-52 w-full" alt={title} loading="lazy" />
+                                <img src={cover} className="object-cover rounded-sm w-full aspect-[16/9]"   // Definir relación de aspecto
+                                    alt={title}
+                                    loading="lazy" />
                                 <div className="card-body">
                                     <h5 className="truncated-title font-title text-base large-desktop:text-xl">{title}</h5>
                                     <div className="truncated-text font-secondary text-sm desktop:text-base large-desktop:text-lg">

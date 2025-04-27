@@ -8,7 +8,7 @@ export const Footer = () => {
 
         <footer className="flex items-center flex-col justify-around large-desktop:p-4 bg-dark min-h-[300px]" >
 
-            <img src={logo} alt="Logo de financeSignal" className='w-52 aspect-[3/2] mx-auto' />
+            <img src={logo} alt="Logo de financeSignal" className='aspect-[3/2] mx-auto w-52' loading='lazy' />
 
             <div className='flex items-center gap-5'>
                 {

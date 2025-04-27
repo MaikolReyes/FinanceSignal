@@ -18,8 +18,8 @@ export const CarouselSlider = () => {
                             <div key={id} className={`carousel-item w-full h-full ${index === 0 ? 'active' : ''}`}>
                                 <Link to={`/article/${title}`} className="no-underline text-inherit position-relative h-full">
                                     <img src={cover}
-                                        loading="eager"
-                                        className="object-cover w-full h-full"
+                                        loading="lazy" className="object-cover w-full h-full"
+                                        width="1200" height="675"
                                         alt={title} />
 
                                     <div className="absolute bottom-0 tablet:mb-8 tablet:left-[10%] tablet:right-[10%] p-3 flex flex-col items-center text-white text-center bg-black/70 rounded-md tablet:rounded-lg">
