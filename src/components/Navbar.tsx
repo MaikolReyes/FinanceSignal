@@ -32,7 +32,7 @@ export const Navbar = () => {
     return (
         <>
             <Link to={''}>
-                <img src={darkMode ? darkLogo : lightLogo} alt="Logo de la empresa" className="h-40 mx-auto" loading="lazy" />
+                <img src={darkMode ? darkLogo : lightLogo} alt="Logo de la empresa" className="h-40 aspect-[3/2] mx-auto" loading="eager" />
             </Link>
 
             <nav className="navbar navbar-expand-lg shadow-md z-10 bg-blue-600">

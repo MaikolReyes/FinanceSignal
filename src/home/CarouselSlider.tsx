@@ -8,20 +8,21 @@ export const CarouselSlider = () => {
 
     return (
 
-        <div className="p-3 mx-auto">
+        <div className="p-3 mx-auto w-full h-full aspect-[12/9] tablet:aspect-[3/2] desktop:aspect-[5/3] large-desktop:aspect-[3/2]">
 
-            <div id="carouselExampleCaptions" className="carousel slide max-w-[800px] overflow-hidden rounded-md">
-                <div className="carousel-inner m-auto">
+            <div id="carouselExampleCaptions" className="carousel slide max-w-[800px] overflow-hidden rounded-md h-full">
+                <div className="carousel-inner m-auto h-full">
 
                     {
                         recentArticles.slice(0).map(({ id, title, contenido, cover }, index) => (
-                            <div key={id} className={`carousel-item w-full ${index === 0 ? 'active' : ''}`}>
+                            <div key={id} className={`carousel-item w-full h-full ${index === 0 ? 'active' : ''}`}>
+                                <Link to={`/article/${title}`} className="no-underline text-inherit position-relative h-full">
+                                    <img src={cover}
+                                        loading="eager"
+                                        className="object-cover w-full h-full"
+                                        alt={title} />
 
-                                <Link to={`/article/${title}`} className="no-underline text-inherit position-relative">
-
-                                    <img src={cover} loading="lazy" className="object-fit-cover w-full h-[250px] tablet:h-[500px] desktop:h-[450px] large-desktop:h-[500px]" alt="Noticias Recientes" />
-
-                                    <div className=" tablet:absolute bottom-4 left-[15%] right-[15%] tablet:bottom-8 tablet:left-[10%] tablet:right-[10%] p-3 flex flex-col items-center text-white text-center bg-black bg-opacity-50 rounded-lg">
+                                    <div className="absolute bottom-0 tablet:mb-8 tablet:left-[10%] tablet:right-[10%] p-3 flex flex-col items-center text-white text-center bg-black/70 rounded-md tablet:rounded-lg">
                                         <h5 className="font-title text-base desktop:text-lg large-desktop:text-xl">{title}</h5>
                                         <div className="truncated-text text-sm desktop:text-base large-desktop:text-lg text-gray-300">
                                             <BlocksRenderer content={contenido} />
