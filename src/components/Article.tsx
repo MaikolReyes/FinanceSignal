@@ -17,7 +17,7 @@ export const Article = () => {
 
     if (!currentArticles) return null;
 
-    const baseUrl = "https://www.financessignal.com"; // reemplazalo
+    const baseUrl = "https://www.financessignal.com";
     const articleUrl = `${baseUrl}/article/${encodeURIComponent(currentArticles?.title || '')}`;
 
     // const ogDescription = currentArticles?.contenido
@@ -73,6 +73,9 @@ export const Article = () => {
 
                 {/* <ShareButtons title={currentArticles.title} url={articleUrl} /> */}
 
+                <div className="border-t-2 border-gray-400 mt-1 my-3"></div>
+
+                <h6 className="font-secondary mb-2">Escrito por:  <small className="font-semibold text-base">{currentArticles?.author.name}</small></h6>
                 <div className="border-t-2 border-gray-400 mt-1 my-3"></div>
 
                 <div className="card-body">

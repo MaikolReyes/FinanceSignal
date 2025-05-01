@@ -9,6 +9,11 @@ export interface Category {
     localizations?: Category[];
 }
 
+export interface Author {
+    id: number;
+    name: string;
+}
+
 export interface Article {
     id: string;
     title: string;
@@ -17,6 +22,7 @@ export interface Article {
     cover: string;
     publishedAt: number;
     locale: string;
+    author: Author;
     localizations?: Article[];
 }
 

@@ -1,2 +1,2 @@
-GET https://cms-financesignal.onrender.com/api/articles?&populate=localizations
+GET 'https://cms-financesignal.onrender.com/api/articles?locale=es&pagination[limit]=100&pagination[start]=0&populate[imagen]=true&populate[category]=true&populate[localizations]=true'
 Authorization: Bearer 53b2c16b0c473854d169014980efd0c4fa6dae1aef43dcb8897452431189ac503f331992e3107ded6284f199387758064f7f94fbf19b66032bfb60ec80061c7411c4354c6d4f7b54d40c1cdc4679e1179f44191df8c8b64aa35576f138579aeac703381f7ae5cf6ff93779a2e95fef4feb8851e072c558245a49ee754462996c
