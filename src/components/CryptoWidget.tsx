@@ -36,7 +36,7 @@ export const CryptoWidget = () => {
     if (error) return <div>{error}</div>;
 
     return (
-        <div className="ticker-container overflow-hidden bg-dark p-2">
+        <div className="ticker-container overflow-hidden bg-blue-600 p-2">
             <div className="ticker-wrapper flex whitespace-nowrap">
                 {tickers.slice(0, 15).map(({ symbol, price }, index) => {
                     // Extraer el nombre de la criptomoneda eliminando la parte "USDT"

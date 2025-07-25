@@ -5,7 +5,8 @@ import { DarkModeContext } from "../context/DarkModeContext";
 import lightLogo from '../assets/logoFinanceSignal.png';
 import darkLogo from '../assets/logoFinanceSignal-white.png';
 import { CryptoWidget } from "./CryptoWidget";
-import { DarkMode } from "../controls";
+import { ButtonLanguages, DarkMode } from "../controls";
+// import { StockWidget } from "./StockWidget";
 
 
 
@@ -13,7 +14,7 @@ export const Navbar = () => {
 
     const { darkMode } = useContext(DarkModeContext);
 
-    const sharedClasses = "nav-link font-secondary";
+    const sharedClasses = `nav-link font-secondary hover:!text-gray-700 font-semibold text-lg ${darkMode ? 'text-white' : 'text-black'}`;
 
     const { articles, language } = useContext(ArticlesContext);
 
@@ -31,11 +32,14 @@ export const Navbar = () => {
 
     return (
         <>
-            <Link to={''}>
-                <img src={darkMode ? darkLogo : lightLogo} alt="Logo de la empresa" className="aspect-[3/2] mx-auto w-52" loading="eager" />
-            </Link>
 
-            <nav className="navbar navbar-expand-lg shadow-md z-10 bg-blue-600">
+            <nav className="navbar navbar-expand-lg shadow-md z-10 flex justify-around">
+
+                <div className="flex items-start ml-5">
+                    <Link to={''}>
+                        <img src={darkMode ? darkLogo : lightLogo} alt="Logo de la empresa" className="max-h-8 w-auto" loading="eager" />
+                    </Link>
+                </div>
 
                 <div className="container-fluid">
 
@@ -49,19 +53,21 @@ export const Navbar = () => {
                         <span className="navbar-toggler-icon"></span>
                     </button>
 
-                    <div className="collapse navbar-collapse mx-auto" id="navbarNav">
-                        <ul className="navbar-nav text-center" >
+                    <div className="collapse navbar-collapse" id="navbarNav">
+
+                        <ul className="navbar-nav" >
+
 
                             {/* Aquí se debe agregar un condicional para mostrar el texto en español o en inglés */}
                             {language === 'es' ?
                                 <li className="nav-item">
-                                    <Link to={''} className={`text-white hover:!text-gray-200 ${sharedClasses}`}
+                                    <Link to={''} className={` ${sharedClasses} `}
                                         aria-current="page">
                                         Últimas noticias
                                     </Link>
                                 </li> :
                                 <li className="nav-item">
-                                    <Link to={''} className={`text-white hover:!text-gray-200 ${sharedClasses}`}
+                                    <Link to={''} className={` ${sharedClasses}`}
                                         aria-current="page">
                                         Latest News
                                     </Link>
@@ -69,33 +75,28 @@ export const Navbar = () => {
                             }
 
 
-                            {uniqueCategories
-                                .slice()
-                                .sort((a, b) => a.name.localeCompare(b.name))
-                                .map(({ id, name }) => (
-                                    <li className="nav-item" key={id}>
-                                        <Link
-                                            className={`${sharedClasses} text-white hover:!text-gray-200`}
-                                            to={`/category/${name}`}
-                                            aria-label={`Ver artículos sobre ${name}`}
-                                        >
-                                            {name}
-                                        </Link>
-                                    </li>
-                                ))}
+                            {uniqueCategories.slice().sort((a, b) => a.name.localeCompare(b.name)).map(({ id, name }) => (
+                                <li className="nav-item" key={id}>
+                                    <Link
+                                        className={`${sharedClasses} `} to={`/category/${name}`} aria-label={`Ver artículos sobre ${name}`}>{name}
+                                    </Link>
+                                </li>
+                            ))}
                         </ul>
 
                     </div>
-                    <div className="d-flex relative desktop:absolute desktop:right-10">
-                        {/* <ButtonLanguages /> */}
-                        <DarkMode />
-                    </div>
-                </div>
 
+                    {/* <ButtonLanguages /> */}
+
+                    <DarkMode />
+
+                </div>
 
             </nav>
 
             <CryptoWidget />
+
+            {/* <StockWidget /> */}
 
         </>
     )

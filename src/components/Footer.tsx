@@ -1,14 +1,18 @@
 import { Link } from 'react-router-dom';
-import logo from '../assets/logoFinanceSignal-white.png';
 import { socialLinks } from '../lib/socialLinks';
+import darkLogo from '../assets/logoFinanceSignal-white.png';
 
 export const Footer = () => {
+
+
     return (
 
 
         <footer className="flex items-center flex-col justify-around large-desktop:p-4 bg-dark min-h-[300px]" >
 
-            <img src={logo} alt="Logo de financeSignal" className='aspect-[3/2] mx-auto w-52' loading='lazy' />
+            <Link to={''}>
+                <img src={darkLogo} alt="Logo de la empresa" className="max-h-8 w-auto" loading="eager" />
+            </Link>
 
             <div className='flex items-center gap-5'>
                 {
@@ -24,7 +28,7 @@ export const Footer = () => {
 
 
 
-            <span className='font-secondary mobile:text-base text-lg text-center text-white mt-5'>
+            <span className='font-secondary mobile:text-base text-lg text-center text-white'>
                 © 2025 Copyright FinanceSignal
             </span>
 

@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { DarkModeContext } from "../context/DarkModeContext";
 
 export const DarkMode = () => {
-
     const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
 
     return (
@@ -14,15 +13,17 @@ export const DarkMode = () => {
                 onChange={toggleDarkMode}
                 aria-label="Activar/desactivar modo oscuro"
             />
-
-            <span className="slider">
+            <span
+                className={`slider flex items-center justify-center   transition-colors duration-300 ${darkMode ? 'bg-white' : 'bg-black'
+                    }`}
+            >
                 {darkMode ? (
                     <i className="fa-solid fa-sun" style={{ color: '#ffc107' }}></i>
                 ) : (
-                    <i className="fa-solid fa-moon mx-auto" style={{ color: 'black' }}></i>
+                    <i className="fa-solid fa-moon mx-auto" style={{ color: 'white' }}></i>
                 )}
             </span>
-
         </label>
     );
 };
+
