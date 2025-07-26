@@ -8,7 +8,7 @@ export const Footer = () => {
     return (
 
 
-        <footer className="flex items-center flex-col justify-around large-desktop:p-4 bg-dark min-h-[300px]" >
+        <footer className="flex items-center flex-col justify-around large-desktop:p-2 bg-dark min-h-[200px]" >
 
             <Link to={''}>
                 <img src={darkLogo} alt="Logo de la empresa" className="max-h-8 w-auto" loading="eager" />
@@ -20,12 +20,11 @@ export const Footer = () => {
                         <a key={label} href={href} target='_blank'
                             rel="noopener noreferrer" aria-label={`Ingresar a ${label}`}
                             className='icon-redes text-white'>
-                            <i className={`fa-brands ${icon}`}></i>
+                            <i className={`fa-brands text-2xl ${icon}`}></i>
                         </a>
                     ))
                 }
             </div>
-
 
 
             <span className='font-secondary mobile:text-base text-lg text-center text-white'>

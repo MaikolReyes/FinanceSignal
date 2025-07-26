@@ -23,6 +23,14 @@ dist-ssr
 *.sln
 *.sw?
 
-api.rest
 
+# Temporary files
+.vscode
 .gitignore
+*.json
+*.rest
+eslint.config.js
+tailwind.config.js
+postcss.config.js
+vite-env.d.ts
+vite.config.ts

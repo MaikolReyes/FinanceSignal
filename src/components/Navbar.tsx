@@ -1,20 +1,33 @@
 import { Link } from "react-router-dom";
 import { useContext, useMemo } from "react";
-import { ArticlesContext } from "../context/ArticlesContext";
-import { DarkModeContext } from "../context/DarkModeContext";
+import { ArticlesContext, DarkModeContext } from "../context";
+import { CryptoWidget } from "./CryptoWidget";
 import lightLogo from '../assets/logoFinanceSignal.png';
 import darkLogo from '../assets/logoFinanceSignal-white.png';
-import { CryptoWidget } from "./CryptoWidget";
+
+/*
+-------> Future Update
+
+1. Add a button to change the language of the website.
+import { ButtonLanguages } from "../controls";
+<ButtonLanguages /> 
+
+2. Add a button to change the theme of the website.
 import { DarkMode } from "../controls";
-// import { StockWidget } from "./StockWidget";
+<DarkMode /> 
 
+3. Add a stock widget to show the latest stock prices.
+import { StockWidget } from "./StockWidget";
+<StockWidget />
 
+----------------------------------------------------------
+*/
 
 export const Navbar = () => {
 
     const { darkMode } = useContext(DarkModeContext);
 
-    const sharedClasses = `nav-link font-secondary hover:!text-gray-700 font-semibold text-lg ${darkMode ? 'text-white' : 'text-black'}`;
+    const sharedClasses = `nav-link font-title hover:!text-gray-700 text-lg ${darkMode ? 'text-white' : 'text-black'}`;
 
     const { articles, language } = useContext(ArticlesContext);
 
@@ -33,7 +46,7 @@ export const Navbar = () => {
     return (
         <>
 
-            <nav className="navbar navbar-expand-lg shadow-md z-10 flex justify-around">
+            <nav className="navbar navbar-expand-lg shadow-md z-10 flex justify-around text-">
 
                 <div className="flex items-start ml-5">
                     <Link to={''}>
@@ -60,14 +73,14 @@ export const Navbar = () => {
 
                             {/* Aquí se debe agregar un condicional para mostrar el texto en español o en inglés */}
                             {language === 'es' ?
-                                <li className="nav-item">
-                                    <Link to={''} className={` ${sharedClasses} `}
+                                <li className="nav-item border-b-2 border-transparent hover:border-gray-600 transition duration-200">
+                                    <Link to={''} className={`${sharedClasses} `}
                                         aria-current="page">
                                         Últimas noticias
                                     </Link>
                                 </li> :
-                                <li className="nav-item">
-                                    <Link to={''} className={` ${sharedClasses}`}
+                                <li className="nav-item border-b-2 border-transparent hover:border-gray-600 transition duration-200">
+                                    <Link to={''} className={`${sharedClasses}`}
                                         aria-current="page">
                                         Latest News
                                     </Link>
@@ -76,28 +89,18 @@ export const Navbar = () => {
 
 
                             {uniqueCategories.slice().sort((a, b) => a.name.localeCompare(b.name)).map(({ id, name }) => (
-                                <li className="nav-item" key={id}>
+                                <li className="nav-item border-b-2 border-transparent hover:border-gray-600 transition duration-200" key={id}>
                                     <Link
                                         className={`${sharedClasses} `} to={`/category/${name}`} aria-label={`Ver artículos sobre ${name}`}>{name}
                                     </Link>
                                 </li>
                             ))}
                         </ul>
-
                     </div>
-
-                    {/* <ButtonLanguages /> */}
-
-                    <DarkMode />
-
                 </div>
-
             </nav>
 
             <CryptoWidget />
-
-            {/* <StockWidget /> */}
-
         </>
     )
 }

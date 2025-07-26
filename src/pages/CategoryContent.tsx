@@ -17,7 +17,7 @@ export const CategoryContent = () => {
 
             <div className="grid grid-cols-1 w-full mx-auto tablet:grid-cols-2 large-desktop:w-4/5">
 
-                {recentArticles.slice(0, 8).map(({ id, title, cover, contenido, publishedAt }) => {
+                {recentArticles.slice(0, 4).map(({ id, title, cover, contenido, publishedAt }) => {
 
                     const formattedDate = new Intl.DateTimeFormat('es-ES', {
                         year: 'numeric',
