@@ -27,7 +27,7 @@ export const Navbar = () => {
 
     const { darkMode } = useContext(DarkModeContext);
 
-    const sharedClasses = `nav-link font-title hover:!text-gray-700 text-lg ${darkMode ? 'text-white' : 'text-black'}`;
+    const sharedClasses = `nav-link font-title hover:!text-gray-700 text-sm tablet:text-base ${darkMode ? 'text-white' : 'text-black'}`;
 
     const { articles, language } = useContext(ArticlesContext);
 
@@ -46,7 +46,7 @@ export const Navbar = () => {
     return (
         <>
 
-            <nav className="navbar navbar-expand-lg shadow-md z-10 flex justify-around text-">
+            <nav className="navbar navbar-expand-lg shadow-md z-10 flex justify-around">
 
                 <div className="flex items-start ml-5">
                     <Link to={''}>
