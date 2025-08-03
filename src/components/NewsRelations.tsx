@@ -1,0 +1,44 @@
+import { Link } from 'react-router-dom';
+import { BlocksRenderer } from '@strapi/blocks-react-renderer';
+import { useRecentArticles } from '../hooks/useRecenArticles';
+
+export const NewsRelations = () => {
+
+    const recentArticles = useRecentArticles();
+    return (
+        <>
+
+            <div className="grid grid-cols-1 tablet:grid-cols-2 w-full large-desktop:w-2/6 mx-auto gap-10 p-2 mt-3W large-desktop:mb-10">
+
+                {
+                    recentArticles.slice(1, 3).map(({ id, title, cover, contenido, publishedAt }) => {
+                        const formattedDate = new Intl.DateTimeFormat('es-ES', {
+                            year: 'numeric',
+                            month: 'short',
+                            day: '2-digit'
+                        }).format(new Date(publishedAt));
+
+                        return (
+                            <div key={id}>
+                                <Link to={`/article/${title}`} className="no-underline text-inherit">
+                                    <div className="card w-full">
+                                        <img src={cover} className="object-cover rounded-sm h-48 large-desktop:h-52" alt="foto" />
+                                        <div className="card-body">
+                                            <h5 className="truncated-title font-title text-lg large-desktop:text-xl">{title}</h5>
+                                            <div className="truncated-text font-secondary text-sm desktop:text-base large-desktop:text-lg">
+                                                <BlocksRenderer content={contenido} />
+                                            </div>
+                                            <p className="card-text"><small className="text-date">{formattedDate}</small></p>
+                                        </div>
+                                    </div>
+                                </Link>
+                            </div>
+
+                        )
+                    }
+                    )}
+            </div>
+
+        </>
+    )
+}

@@ -14,9 +14,9 @@ export const CarouselSlider = () => {
                 <div className="carousel-inner m-auto h-full">
 
                     {
-                        recentArticles.slice(0).map(({ id, title, contenido, cover }, index) => (
+                        recentArticles.slice(0).map(({ id, title, contenido, cover, slug }, index) => (
                             <div key={id} className={`carousel-item w-full h-full ${index === 0 ? 'active' : ''}`}>
-                                <Link to={`/article/${title}`} className="no-underline text-inherit position-relative h-full">
+                                <Link to={`/article/${slug}`} className="no-underline text-inherit position-relative h-full">
                                     <img src={cover}
                                         loading="lazy" className="object-cover w-full h-full"
                                         width="1200" height="675"

@@ -10,7 +10,7 @@ export const Sidebar = () => {
 
         <div className="grid grid-cols-1 justify-start p-3 gap-3 w-full tablet:grid-cols-2">
 
-            {recentArticles.slice(1, 3).map(({ title, cover, id, contenido, publishedAt }) => {
+            {recentArticles.slice(1, 3).map(({ title, cover, id, contenido, publishedAt, slug }) => {
 
                 const formattedDate = new Intl.DateTimeFormat('es-ES', {
                     year: 'numeric',
@@ -21,7 +21,7 @@ export const Sidebar = () => {
                 return (
 
                     <div key={id}>
-                        <Link to={`/article/${title}`} className="w-full no-underline text-inherit">
+                        <Link to={`/article/${slug}`} className="w-full no-underline text-inherit">
                             <div className="card w-full">
                                 <img src={cover} className="object-cover h-48 large-desktop:h-52 w-full rounded-start" alt={title} loading="lazy" />
                                 <div className="card-body">
@@ -43,7 +43,7 @@ export const Sidebar = () => {
 
 
 
-            {recentArticles.slice(3, 5).map(({ title, id, publishedAt }) => {
+            {recentArticles.slice(3, 5).map(({ title, id, publishedAt, slug }) => {
 
                 const formattedDate = new Intl.DateTimeFormat('es-ES', {
                     year: 'numeric',
@@ -54,7 +54,7 @@ export const Sidebar = () => {
                 return (
 
                     <div key={id}>
-                        <Link to={`/article/${title}`} className="w-full no-underline text-inherit">
+                        <Link to={`/article/${slug}`} className="w-full no-underline text-inherit">
                             <div className="card w-full">
                                 <div className="card-body">
                                     <h5 className="truncated-title font-title text-base large-desktop:text-xl">

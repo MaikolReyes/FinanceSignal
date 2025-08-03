@@ -10,7 +10,7 @@ export const NewsDownLeft = () => {
     return (
         <div className="grid grid-cols-1 mb-10 w-full mx-auto gap-10 p-3 tablet:grid-cols-4 large-desktop:w-4/5">
 
-            {recentArticles.slice(15, 19).map(({ id, title, cover, contenido, publishedAt }) => {
+            {recentArticles.slice(15, 19).map(({ id, title, cover, contenido, publishedAt, slug }) => {
 
                 const formattedDate = new Intl.DateTimeFormat('es-ES', {
                     year: 'numeric',
@@ -21,7 +21,7 @@ export const NewsDownLeft = () => {
                 return (
 
                     <div key={id}>
-                        <Link to={`/article/${title}`} className="no-underline text-inherit">
+                        <Link to={`/article/${slug}`} className="no-underline text-inherit">
                             <div className="card w-full">
                                 <img src={cover} className="object-cover rounded-sm w-full aspect-[16/9]"   // Definir relación de aspecto
                                     alt={title}

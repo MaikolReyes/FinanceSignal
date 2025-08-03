@@ -4,12 +4,12 @@ import { ArticlesContext } from "../context";
 
 export const useArticlesLanguage = () => {
 
-    const { title } = useParams();
+    const { slug } = useParams();
     const { articles, language } = useContext(ArticlesContext);
     const navigate = useNavigate();
 
     // Buscar el artículo actual por título
-    const currentArticle = articles?.find((article) => article.title === title);
+    const currentArticle = articles?.find((article) => article.slug === slug);
 
     const localizations = currentArticle?.localizations;
 
@@ -21,10 +21,10 @@ export const useArticlesLanguage = () => {
 
     // Navegar a la versión traducida si es necesario
     useEffect(() => {
-        if (translatedArticle && translatedArticle.title !== title) {
-            navigate(`/article/${encodeURIComponent(translatedArticle.title)}`, { replace: true });
+        if (translatedArticle && translatedArticle.slug !== slug) {
+            navigate(`/article/${translatedArticle.slug}`, { replace: true });
         }
-    }, [translatedArticle, title, navigate]);
+    }, [translatedArticle, slug, navigate]);
 
     return currentArticle;
 };

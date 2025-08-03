@@ -8,6 +8,7 @@ export const CategoryContent = () => {
     const recentArticles = useCategoryArticles();
 
     const { categoryName } = useParams();
+
     return (
         <>
 

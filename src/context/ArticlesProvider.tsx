@@ -1,7 +1,6 @@
 import { useEffect, useState, ReactNode } from "react";
 import { getArticles } from "../lib";
-import { ArticlesContext } from "./ArticlesContext";
-import { Article } from './InterfaceArticle';
+import { ArticlesContext, Article } from "../context";
 
 type ArticlesProviderProps = {
     children: ReactNode;

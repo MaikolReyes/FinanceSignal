@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import { useContext, useMemo } from "react";
-import { ArticlesContext, DarkModeContext } from "../context";
+import { CategoriesContext, DarkModeContext } from "../context";
 import { CryptoWidget } from "./CryptoWidget";
 import lightLogo from '../assets/logoFinanceSignal.png';
 import darkLogo from '../assets/logoFinanceSignal-white.png';
+import { ButtonLanguages, DarkMode } from "../controls";
 
 /*
 -------> Future Update
@@ -27,21 +28,27 @@ export const Navbar = () => {
 
     const { darkMode } = useContext(DarkModeContext);
 
-    const sharedClasses = `nav-link font-title hover:!text-gray-700 text-sm tablet:text-base ${darkMode ? 'text-white' : 'text-black'}`;
+    const sharedClasses = `nav-link font-title hover:!text-gray-700 text-sm tablet:text-base ${darkMode ? 'text-white hover:!text-gray-200' : 'text-black'}`;
 
-    const { articles, language } = useContext(ArticlesContext);
+    // const { articles, language } = useContext(ArticlesContext);
+
+    const { categories, language } = useContext(CategoriesContext);
 
     // Filtrar categorías únicas según el idioma
     const uniqueCategories = useMemo(() => {
-        return Array.from(
-            new Map(
-                articles
-                    .map(({ category }) => category)
-                    .filter(category => category?.locale === language) // Filtrar por idioma actual
-                    .map(category => [category.name, category]) // Evitar duplicados
-            ).values()
-        ).sort((a, b) => a.name.localeCompare(b.name));
-    }, [articles, language]);
+        return categories
+            .flatMap(category => {
+                // Si el idioma actual coincide con el locale de la categoría, usar la categoría directamente
+                if (category.locale === language) {
+                    return [category];
+                }
+
+                // Si no coincide, buscar en las localizaciones
+                const localization = category.localizations?.find(loc => loc.locale === language);
+                return localization ? [localization] : [];
+            })
+            .sort((a, b) => a.name.localeCompare(b.name));
+    }, [categories, language]);
 
     return (
         <>
@@ -88,15 +95,22 @@ export const Navbar = () => {
                             }
 
 
-                            {uniqueCategories.slice().sort((a, b) => a.name.localeCompare(b.name)).map(({ id, name }) => (
+                            {uniqueCategories.map(({ id, name }) => (
                                 <li className="nav-item border-b-2 border-transparent hover:border-gray-600 transition duration-200" key={id}>
                                     <Link
-                                        className={`${sharedClasses} `} to={`/category/${name}`} aria-label={`Ver artículos sobre ${name}`}>{name}
+                                        className={`${sharedClasses} `}
+                                        to={`/category/${name}`}
+                                        aria-label={`Ver artículos sobre ${name}`}
+                                    >
+                                        {name}
                                     </Link>
                                 </li>
                             ))}
                         </ul>
                     </div>
+
+                    <ButtonLanguages />
+                    <DarkMode />
                 </div>
             </nav>
 
