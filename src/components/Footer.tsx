@@ -20,7 +20,7 @@ export const Footer = () => {
                         <a key={label} href={href} target='_blank'
                             rel="noopener noreferrer" aria-label={`Ingresar a ${label}`}
                             className='icon-redes text-white'>
-                            <img src={src} className='w-6' />
+                            <img src={src} className='w-6' alt={label} />
                         </a>
                     ))
                 }
@@ -32,6 +32,10 @@ export const Footer = () => {
             </span>
 
             <div className='flex items-center gap-5'>
+
+                <Link to="/contacto" className="text-blue-400 hover:underline">
+                    Contacto
+                </Link>
 
                 <Link to="/politica-de-privacidad" className="text-blue-400 hover:underline">
                     Política de Privacidad
