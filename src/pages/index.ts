@@ -3,5 +3,7 @@ export * from "./CategoryContent"
 export * from "./PrivacyPolicy"
 export * from "./Legals"
 export * from "./Contacto"
+export * from "./About"
+
 
 

@@ -33,6 +33,10 @@ export const Footer = () => {
 
             <div className='flex items-center gap-5'>
 
+                <Link to="/sobre-nosotros" className="text-blue-400 hover:underline">
+                    Sobre Nosotros
+                </Link>
+
                 <Link to="/contacto" className="text-blue-400 hover:underline">
                     Contacto
                 </Link>
@@ -44,6 +48,7 @@ export const Footer = () => {
                 <Link to="/aviso-legal" className="text-blue-400 hover:underline">
                     Aviso Legal
                 </Link>
+
             </div>
 
         </footer >

@@ -75,6 +75,7 @@ export const Article = () => {
 
             <div className="w-full mx-auto tablet:w-2/4 large-desktop:w-2/6">
                 <div className={`bg-gray-100 rounded p-3 border border-gray-300 shadow-md ${darkMode ? 'bg-gray-800 text-white' : 'bg-gray-200 text-black'}`}>
+                    {/* <h3 className='font-secondary font-bold'>Resumen:</h3> */}
                     <BlocksRenderer content={contentResumen}
                         blocks={{
                             paragraph: ({ children }) => <p className="font-secondary">{children}</p>,

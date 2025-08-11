@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { useRecentArticles } from "../hooks/useRecenArticles";
-import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 
 export const Sidebar = () => {
 
@@ -10,7 +9,7 @@ export const Sidebar = () => {
 
         <div className="grid grid-cols-1 justify-start p-3 gap-3 w-full tablet:grid-cols-2">
 
-            {recentArticles.slice(1, 3).map(({ title, cover, id, contenido, publishedAt, slug }) => {
+            {recentArticles.slice(1, 3).map(({ title, cover, id, publishedAt, slug }) => {
 
                 const formattedDate = new Intl.DateTimeFormat('es-ES', {
                     year: 'numeric',
@@ -23,14 +22,14 @@ export const Sidebar = () => {
                     <div key={id}>
                         <Link to={`/article/${slug}`} className="w-full no-underline text-inherit">
                             <div className="card w-full">
-                                <img src={cover} className="object-cover h-48 large-desktop:h-52 w-full rounded-start" alt={title} loading="lazy" />
+                                <img src={cover} className="object-cover h-40 large-desktop:h-52 w-full rounded-start" alt={title} loading="lazy" />
                                 <div className="card-body">
                                     <h3 className="truncated-title font-title text-base large-desktop:text-xl">
                                         {title}
                                     </h3>
-                                    <div className="truncated-text text-gray-600 font-secondary text-sm desktop:text-base large-desktop:text-lg">
+                                    {/* <div className="truncated-text text-gray-600 font-secondary text-sm desktop:text-base large-desktop:text-lg">
                                         <BlocksRenderer content={contenido} />
-                                    </div>
+                                    </div> */}
                                     <p className="card-text"><small className="text-date">{formattedDate}</small></p>
                                 </div>
                             </div>
@@ -43,7 +42,7 @@ export const Sidebar = () => {
 
 
 
-            {recentArticles.slice(3, 5).map(({ title, id, publishedAt, slug }) => {
+            {recentArticles.slice(3, 5).map(({ title, id, publishedAt, slug, cover }) => {
 
                 const formattedDate = new Intl.DateTimeFormat('es-ES', {
                     year: 'numeric',
@@ -56,6 +55,7 @@ export const Sidebar = () => {
                     <div key={id}>
                         <Link to={`/article/${slug}`} className="w-full no-underline text-inherit">
                             <div className="card w-full">
+                                <img src={cover} className="object-cover h-40 large-desktop:h-52 w-full rounded-start" alt={title} loading="lazy" />
                                 <div className="card-body">
                                     <h3 className="truncated-title font-title text-base large-desktop:text-xl">
                                         {title}

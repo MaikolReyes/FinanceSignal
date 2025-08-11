@@ -5,13 +5,14 @@ import { useRecentArticles } from '../hooks/useRecenArticles';
 export const NewsRelations = () => {
 
     const recentArticles = useRecentArticles();
+
     return (
         <>
 
             <div className="grid grid-cols-1 tablet:grid-cols-2 w-full large-desktop:w-2/6 mx-auto gap-10 p-2 mt-3W large-desktop:mb-10">
 
                 {
-                    recentArticles.slice(1, 3).map(({ id, title, cover, contenido, publishedAt }) => {
+                    recentArticles.slice(1, 3).map(({ id, title, cover, contenido, publishedAt, slug }) => {
                         const formattedDate = new Intl.DateTimeFormat('es-ES', {
                             year: 'numeric',
                             month: 'short',
@@ -20,7 +21,7 @@ export const NewsRelations = () => {
 
                         return (
                             <div key={id}>
-                                <Link to={`/article/${title}`} className="no-underline text-inherit">
+                                <Link to={`/article/${slug}`} className="no-underline text-inherit">
                                     <div className="card w-full">
                                         <img src={cover} className="object-cover rounded-sm h-48 large-desktop:h-52" alt="foto" />
                                         <div className="card-body">
