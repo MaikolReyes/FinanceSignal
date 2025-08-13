@@ -27,7 +27,7 @@ export const NewsDownLeft = () => {
                                     alt={title}
                                     loading="lazy" />
                                 <div className="card-body">
-                                    <h5 className="truncated-title font-title text-base large-desktop:text-xl">{title}</h5>
+                                    <h2 className="truncated-title font-title text-base large-desktop:text-xl">{title}</h2>
                                     <div className="truncated-text font-secondary text-sm desktop:text-base large-desktop:text-lg">
                                         <BlocksRenderer content={contenido} />
                                     </div>

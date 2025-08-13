@@ -24,9 +24,9 @@ export const Sidebar = () => {
                             <div className="card w-full">
                                 <img src={cover} className="object-cover h-40 large-desktop:h-52 w-full rounded-start" alt={title} loading="lazy" />
                                 <div className="card-body">
-                                    <h3 className="truncated-title font-title text-base large-desktop:text-xl">
+                                    <h2 className="truncated-title font-title text-base large-desktop:text-xl">
                                         {title}
-                                    </h3>
+                                    </h2>
                                     {/* <div className="truncated-text text-gray-600 font-secondary text-sm desktop:text-base large-desktop:text-lg">
                                         <BlocksRenderer content={contenido} />
                                     </div> */}
@@ -57,9 +57,9 @@ export const Sidebar = () => {
                             <div className="card w-full">
                                 <img src={cover} className="object-cover h-40 large-desktop:h-52 w-full rounded-start" alt={title} loading="lazy" />
                                 <div className="card-body">
-                                    <h3 className="truncated-title font-title text-base large-desktop:text-xl">
+                                    <h2 className="truncated-title font-title text-base large-desktop:text-xl">
                                         {title}
-                                    </h3>
+                                    </h2>
                                     <p className="card-text"><small className="text-date">{formattedDate}</small></p>
                                 </div>
                             </div>

@@ -30,7 +30,7 @@ export const NewsDown = () => {
                             <div className="w-full large-desktop:w-4/5">
                                 <div className="card-body">
                                     <Link to={`/article/${slug}`} className="no-underline text-inherit">
-                                        <h5 className="truncated-title font-title text-lg large-desktop:text-xl no-underline text-inherit">{title}</h5>
+                                        <h2 className="truncated-title font-title text-lg large-desktop:text-xl no-underline text-inherit">{title}</h2>
                                     </Link>
                                     <div className="truncated-text text-gray-600 font-secondary text-sm desktop:text-base large-desktop:text-lg">
                                         <BlocksRenderer content={contenido} />
