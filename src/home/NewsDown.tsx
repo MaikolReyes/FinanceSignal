@@ -9,7 +9,7 @@ export const NewsDown = () => {
     return (
         <div className="grid grid-cols-1 w-full mx-auto tablet:grid-cols-2 large-desktop:w-4/5">
 
-            {recentArticles.slice(5, 7).map(({ id, title, cover, contenido, publishedAt,slug }) => {
+            {recentArticles.slice(5, 13).map(({ id, title, cover, contenido, publishedAt,slug }) => {
 
                 const formattedDate = new Intl.DateTimeFormat('es-ES', {
                     year: 'numeric',

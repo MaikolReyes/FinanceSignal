@@ -9,7 +9,7 @@ export const NewsRelations = () => {
     return (
         <>
 
-            <div className="grid grid-cols-1 tablet:grid-cols-2 w-full large-desktop:w-2/6 mx-auto gap-10 p-2 mt-3W large-desktop:mb-10">
+            <div className="grid grid-cols-1 tablet:grid-cols-2 w-full tablet:w-2/4 large-desktop:w-2/6 mx-auto gap-10 p-2 mt-3W large-desktop:mb-10">
 
                 {
                     recentArticles.slice(1, 3).map(({ id, title, cover, contenido, publishedAt, slug }) => {
