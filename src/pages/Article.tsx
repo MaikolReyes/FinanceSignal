@@ -113,6 +113,17 @@ export const Article = () => {
                                     />
                                 </div>
                             ),
+                            // 👇 Aquí defines cómo se renderiza un enlace
+                            link: ({ children, url }) => (
+                                <a href={url} className="text-blue-500 hover:underline font-bold">
+                                    {children}
+                                </a>
+                            ),
+                            quote: ({ children }) => (
+                                <blockquote className={`font-secondary border-l-4 border-blue-500 pl-4 italic font-bold my-4 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                                    {children}
+                                </blockquote>
+                            ),
                         }}
                     />
                 </div>
