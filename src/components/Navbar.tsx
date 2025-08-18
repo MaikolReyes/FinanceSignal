@@ -4,7 +4,7 @@ import { CategoriesContext, DarkModeContext } from "../context";
 import { CryptoWidget } from "./CryptoWidget";
 import lightLogo from '../assets/logoFinanceSignal.png';
 import darkLogo from '../assets/logoFinanceSignal-white.png';
-import { ButtonLanguages, DarkMode } from "../controls";
+import { DarkMode } from "../controls";
 
 /*
 -------> Future Update
@@ -109,7 +109,7 @@ export const Navbar = () => {
                         </ul>
                     </div>
 
-                    <ButtonLanguages />
+                    {/* <ButtonLanguages /> */}
                     <DarkMode />
                 </div>
             </nav>
