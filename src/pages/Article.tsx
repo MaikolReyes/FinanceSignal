@@ -17,7 +17,7 @@ export const Article = () => {
     const formattedDate = publishedAt
         ? new Intl.DateTimeFormat('es-ES', {
             year: 'numeric',
-            month: '2-digit',
+            month: 'long',
             day: '2-digit',
         }).format(new Date(publishedAt))
         : 'Fecha no disponible';
@@ -49,7 +49,7 @@ export const Article = () => {
 
                 <h1 className="card-title text-xl mt-2 font-bold font-secondary desktop:mt-5 tablet:text-3xl">{title}</h1>
                 <hr className={`border-t-2 my-2 ${darkMode ? 'border-white' : 'border-gray-800'} `} />
-                <h3 className="font-secondary">Publicado el: <small className="font-semibold text-base font-secondary">{formattedDate}</small></h3>
+                <h3 className="font-secondary text-base font-semibold">Fecha de publicación: {formattedDate}</h3>
                 <hr className={`border-t-2 my-2 ${darkMode ? 'border-white' : 'border-gray-800'} `} />
 
                 <img src={imagen} className="rounded-2xl shadow-lg w-full mx-auto" alt="foto" />
@@ -69,7 +69,7 @@ export const Article = () => {
                 </div>
 
                 <hr className={`border-t-2 my-2 ${darkMode ? 'border-white' : 'border-gray-800'} `} />
-                <h6 className="font-secondary">Escrito por: <small className="font-semibold text-base">{author}</small></h6>
+                <h6 className="font-secondary"><small className="text-base font-semibold">Autor:</small> {author} - Analista financiero en FinanceSignal</h6>
                 <hr className={`border-t-2 my-2 ${darkMode ? 'border-white' : 'border-gray-800'} `} />
             </div>
 
