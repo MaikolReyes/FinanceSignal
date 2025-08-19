@@ -126,6 +126,7 @@ export const Article = () => {
                             ),
                         }}
                     />
+                    {/* <Tradingview symbol="NASDAQ:AAPL" /> */}
                 </div>
                 <hr className={`border-t-2 my-2 ${darkMode ? 'border-white' : 'border-gray-800'} `} />
             </div>

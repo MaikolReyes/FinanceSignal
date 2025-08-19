@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import { useContext, useMemo } from "react";
 import { CategoriesContext, DarkModeContext } from "../context";
-import { CryptoWidget } from "./CryptoWidget";
+// import { CryptoWidget } from "./CryptoWidget";
 import lightLogo from '../assets/logoFinanceSignal.png';
 import darkLogo from '../assets/logoFinanceSignal-white.png';
 import { DarkMode } from "../controls";
+import TradingviewTicker from "./TradingviewTicker";
 
 /*
 -------> Future Update
@@ -114,7 +115,9 @@ export const Navbar = () => {
                 </div>
             </nav>
 
-            <CryptoWidget />
+            {/* <CryptoWidget /> */}
+            <TradingviewTicker />
+
         </>
     )
 }

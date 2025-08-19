@@ -5,6 +5,7 @@ import { ArticlesProvider, DarkModeProvider } from './context';
 import CookieConsent from './pages/CookieConsent';
 import { CategoriesProvider } from './context/CategoriesProvider';
 
+
 function App() {
 
   return (
@@ -22,6 +23,7 @@ function App() {
                 <Route path="/politica-de-privacidad" element={<PrivacyPolicy />} />
                 <Route path="/contacto" element={<Contact />} />
                 <Route path="/aviso-legal" element={<Legals />} />
+                {/* <Route path="/stock" element={<Tradingview symbol="NASDAQ:AAPL" />} /> */}
                 <Route path="/sobre-nosotros" element={<About />} />
               </Routes>
               <Footer />
