@@ -45,7 +45,7 @@ export const Article = () => {
             </Helmet>
 
 
-            <div key={id} className="flex flex-col justify-center w-full p-2 mx-auto tablet:w-2/4 large-desktop:w-2/6 mt-4">
+            <div key={id} className="flex flex-col justify-center w-full p-2 mx-auto tablet:w-2/4 large-desktop:w-2/6">
 
                 <h1 className="card-title text-xl mt-2 font-bold font-secondary desktop:mt-5 tablet:text-3xl">{title}</h1>
                 <hr className={`border-t-2 my-2 ${darkMode ? 'border-white' : 'border-gray-800'} `} />
@@ -89,7 +89,7 @@ export const Article = () => {
                     <BlocksRenderer content={content}
                         blocks={{
                             paragraph: ({ children }) => (
-                                <p className="mb-2 font-secondary">{children}</p>),
+                                <p className="font-secondary">{children}</p>),
                             heading: ({ children, level }) => {
                                 const HeadingTag = `h${level}` as keyof JSX.IntrinsicElements;
                                 const sizeMap: Record<number, string> = {
@@ -97,14 +97,14 @@ export const Article = () => {
                                 };
                                 return (
                                     <HeadingTag
-                                        className={`${sizeMap[level] || 'text-base'} font-bold mb-4 font-secondary`}
+                                        className={`${sizeMap[level] || 'text-base'} font-bold font-secondary`}
                                     >
                                         {children}
                                     </HeadingTag>
                                 );
                             },
                             image: ({ image }) => (
-                                <div className="my-4 flex justify-center">
+                                <div className="flex justify-center">
                                     <img
                                         src={image.url}
                                         alt={image.alternativeText || 'Imagen'}
@@ -124,6 +124,8 @@ export const Article = () => {
                                     {children}
                                 </blockquote>
                             ),
+                            list: ({ children }) => <ul className="list-disc pl-6">{children}</ul>,
+                            'list-item': ({ children }) => <li className='font-secondary'>{children}</li>
                         }}
                     />
                     {/* <Tradingview symbol="NASDAQ:AAPL" /> */}
