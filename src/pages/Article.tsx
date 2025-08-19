@@ -52,7 +52,7 @@ export const Article = () => {
                 <h3 className="font-secondary text-base font-semibold">Fecha de publicación: {formattedDate}</h3>
                 <hr className={`border-t-2 my-2 ${darkMode ? 'border-white' : 'border-gray-800'} `} />
 
-                <img src={imagen} className="rounded-2xl shadow-lg w-full mx-auto" alt="foto" />
+                <img src={imagen} className="rounded-xl shadow-lg w-full mx-auto" alt="foto" />
 
                 <div className='flex items-start flex-col justify-around' data-aos="fade-up">
                     <div className='flex items-center gap-3 p-1'>
