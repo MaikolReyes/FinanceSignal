@@ -19,7 +19,6 @@ export const CategoriesProvider = ({ children }: CategoriesProviderProps) => {
             .catch(err => console.error('Error fetching articles:', err));
     }, [language]);
 
-    console.log('Categories:', categories); // Debugging line to check categories
     return (
         <CategoriesContext.Provider value={{ categories, language, setLanguage }}>
             {children}

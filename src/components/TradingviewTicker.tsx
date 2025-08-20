@@ -41,19 +41,17 @@ function TradingViewWidget() {
                 "displayMode": "compact",
                 "locale": "es"
             }`;
+
             container.current.appendChild(script);
         },
         [darkMode]
     );
 
     return (
-        <div
-            ref={container}
-            className="tradingview-widget-container border-2"
-        />
-
+        <div className="tradingview-widget-container border-2" ref={container}>
+            <div className="tradingview-widget-container__widget"></div>
+        </div>
     );
-
 }
 
 export default memo(TradingViewWidget);

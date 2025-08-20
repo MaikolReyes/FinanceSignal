@@ -21,14 +21,14 @@ export const CarouselSlider = () => {
                                         loading="lazy" className="object-cover w-full h-full"
                                         width="1200" height="675"
                                         alt={title} />
-
-                                    <div className="absolute bottom-0 tablet:mb-8 tablet:left-[10%] tablet:right-[10%] p-3 flex flex-col items-center text-white text-center bg-black/70 rounded-md tablet:rounded-lg">
-                                        <h2 className="font-title text-base desktop:text-lg large-desktop:text-xl">{title}</h2>
-                                        <div className="truncated-text text-sm desktop:text-base large-desktop:text-lg text-gray-300">
-                                            <BlocksRenderer content={contenido} />
-                                        </div>
-                                    </div>
                                 </Link>
+
+                                <div className="absolute bottom-0 tablet:mb-8 tablet:left-[10%] tablet:right-[10%] p-3 flex flex-col items-center text-white text-center bg-black/70 rounded-md tablet:rounded-lg">
+                                    <h2 className="font-title text-base desktop:text-lg large-desktop:text-xl">{title}</h2>
+                                    <div className="truncated-text text-sm desktop:text-base large-desktop:text-lg text-gray-300">
+                                        <BlocksRenderer content={contenido} />
+                                    </div>
+                                </div>
 
                             </div>
                         ))}

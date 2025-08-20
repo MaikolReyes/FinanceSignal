@@ -114,8 +114,9 @@ export const Article = () => {
                                 </div>
                             ),
                             // 👇 Aquí defines cómo se renderiza un enlace
-                            link: ({ children, url }) => (
-                                <a href={url} className="text-blue-500 hover:underline font-bold">
+                            link: ({ children, url, label }) => (
+                                <a href={url} aria-label={label || (typeof children === 'string' ? children : undefined)}
+                                    className="text-blue-500 hover:underline font-bold">
                                     {children}
                                 </a>
                             ),
@@ -131,7 +132,7 @@ export const Article = () => {
                     {/* <Tradingview symbol="NASDAQ:AAPL" /> */}
                 </div>
                 <hr className={`border-t-2 my-2 ${darkMode ? 'border-white' : 'border-gray-800'} `} />
-            </div>
+            </div >
 
             <NewsRelations />
         </>
