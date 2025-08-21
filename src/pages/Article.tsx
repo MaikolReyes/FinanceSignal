@@ -9,7 +9,6 @@ import { useContext } from 'react';
 export const Article = () => {
 
     const { darkMode } = useContext(DarkModeContext);
-
     // Context
     const currentArticles = useArticlesLanguage();
 
