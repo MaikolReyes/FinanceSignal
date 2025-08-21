@@ -29,7 +29,7 @@ export const Navbar = () => {
 
     const { darkMode } = useContext(DarkModeContext);
 
-    const sharedClasses = `nav-link font-title hover:!text-gray-700 text-sm tablet:text-base ${darkMode ? 'text-white hover:!text-gray-200' : 'text-black'}`;
+    const sharedClasses = `nav-link font-title hover:!text-gray-700 text-sm tablet:text-base ${darkMode ? 'text-white hover:!text-gray-100' : 'text-black'}`;
 
     // const { articles, language } = useContext(ArticlesContext);
 

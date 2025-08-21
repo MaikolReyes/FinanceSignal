@@ -9,7 +9,7 @@ export const NewsDown = () => {
     return (
         <div className="grid grid-cols-1 w-full mx-auto tablet:grid-cols-2 large-desktop:w-4/5">
 
-            {recentArticles.slice(5, 13).map(({ id, title, cover, contenido, publishedAt,slug }) => {
+            {recentArticles.slice(5, 13).map(({ id, title, cover, contenido, publishedAt, slug }) => {
 
                 const formattedDate = new Intl.DateTimeFormat('es-ES', {
                     year: 'numeric',
@@ -23,7 +23,11 @@ export const NewsDown = () => {
                         <div className="flex flex-col tablet:flex-row h-full">
                             <div className="desktop:w-2/3 large-desktop:w-1/3">
                                 <Link to={`/article/${slug}`} className="no-underline text-inherit">
-                                    <img src={cover} className="object-cover rounded-sm h-48 large-desktop:h-52 w-full" alt={title} loading="lazy" />
+                                    <img src={cover}
+                                        className="object-cover rounded-sm h-48 large-desktop:h-52 w-full"
+                                        alt={title}
+                                        loading="eager"
+                                    />
                                 </Link>
                             </div>
 

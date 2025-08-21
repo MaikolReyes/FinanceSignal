@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useRecentArticles } from "../hooks/useRecenArticles";
+import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 
 export const Sidebar = () => {
 
@@ -7,42 +8,9 @@ export const Sidebar = () => {
 
     return (
 
-        <div className="grid grid-cols-1 justify-start p-3 gap-3 w-full tablet:grid-cols-2">
+        <div className="w-full h-full grid grid-cols-1 justify-start gap-3 tablet:grid-cols-2">
 
-            {recentArticles.slice(1, 3).map(({ title, cover, id, publishedAt, slug }) => {
-
-                const formattedDate = new Intl.DateTimeFormat('es-ES', {
-                    year: 'numeric',
-                    month: 'short',
-                    day: '2-digit'
-                }).format(new Date(publishedAt));
-
-                return (
-
-                    <div key={id}>
-                        <Link to={`/article/${slug}`} className="w-full no-underline text-inherit">
-                            <div className="card w-full">
-                                <img src={cover} className="object-cover h-40 large-desktop:h-52 w-full rounded-start" alt={title} loading="lazy" />
-                                <div className="card-body">
-                                    <h2 className="truncated-title font-title text-base large-desktop:text-xl">
-                                        {title}
-                                    </h2>
-                                    {/* <div className="truncated-text text-gray-600 font-secondary text-sm desktop:text-base large-desktop:text-lg">
-                                        <BlocksRenderer content={contenido} />
-                                    </div> */}
-                                    <p className="card-text"><small className="text-date">{formattedDate}</small></p>
-                                </div>
-                            </div>
-                        </Link>
-
-                    </div>
-                )
-            })
-            }
-
-
-
-            {recentArticles.slice(3, 5).map(({ title, id, publishedAt, slug, cover }) => {
+            {recentArticles.slice(1, 3).map(({ title, cover, id, publishedAt, slug, contenido }) => {
 
                 const formattedDate = new Intl.DateTimeFormat('es-ES', {
                     year: 'numeric',
@@ -52,23 +20,49 @@ export const Sidebar = () => {
 
                 return (
 
-                    <div key={id}>
+                    <div className="card" key={id}>
                         <Link to={`/article/${slug}`} className="w-full no-underline text-inherit">
-                            <div className="card w-full">
-                                <img src={cover} className="object-cover h-40 large-desktop:h-52 w-full rounded-start" alt={title} loading="lazy" />
-                                <div className="card-body">
-                                    <h2 className="truncated-title font-title text-base large-desktop:text-xl">
-                                        {title}
-                                    </h2>
-                                    <p className="card-text"><small className="text-date">{formattedDate}</small></p>
-                                </div>
-                            </div>
+                            <img src={cover} className="object-cover h-40 large-desktop:h-48 w-full rounded-start"
+                                alt={title}
+                                loading="eager" />
                         </Link>
+                        <div className="card-body">
+                            <h2 className="truncated-title font-title text-base large-desktop:text-xl">
+                                {title}
+                            </h2>
+                            <div className="truncated-text text-gray-600 font-secondary text-sm desktop:text-base large-desktop:text-lg">
+                                <BlocksRenderer content={contenido} />
+                            </div>
+                            <p className="card-text"><small className="text-date">{formattedDate}</small></p>
+                        </div>
 
                     </div>
                 )
             })
             }
+
+            {recentArticles.slice(3, 5).map(({ title, id, publishedAt, slug }) => {
+
+                const formattedDate = new Intl.DateTimeFormat('es-ES', {
+                    year: 'numeric',
+                    month: 'short',
+                    day: '2-digit'
+                }).format(new Date(publishedAt));
+
+                return (
+
+                    <div className="card" key={id}>
+                        <Link to={`/article/${slug}`}>
+                            <div className="card-body">
+                                <h2 className="truncated-title font-title text-base large-desktop:text-xl">
+                                    {title}
+                                </h2>
+                                <p className="card-text"><small className="text-date">{formattedDate}</small></p>
+                            </div>
+                        </Link>
+                    </div>
+                )
+            })}
         </div>
     )
 }

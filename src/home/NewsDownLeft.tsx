@@ -25,7 +25,7 @@ export const NewsDownLeft = () => {
                             <div className="card w-full">
                                 <img src={cover} className="object-cover rounded-sm w-full aspect-[16/9]"   // Definir relación de aspecto
                                     alt={title}
-                                    loading="lazy" />
+                                    loading="eager" />
                                 <div className="card-body">
                                     <h2 className="truncated-title font-title text-base large-desktop:text-xl">{title}</h2>
                                     <div className="truncated-text font-secondary text-sm desktop:text-base large-desktop:text-lg">

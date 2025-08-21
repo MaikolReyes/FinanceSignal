@@ -10,8 +10,13 @@ export const Footer = () => {
 
         <footer className="flex items-center flex-col justify-around large-desktop:p-2 bg-dark min-h-[200px]" >
 
-            <Link to={''}>
-                <img src={darkLogo} alt="Logo de la empresa" className="max-h-8 w-auto" loading="eager" />
+            <Link to={'/'}>
+                <img src={darkLogo}
+                    alt="Logo"
+                    width={32}   // o el valor real en px
+                    height={32}
+                    className="max-h-8 w-auto"
+                    loading="lazy" />
             </Link>
 
             <div className='flex items-center gap-5'>

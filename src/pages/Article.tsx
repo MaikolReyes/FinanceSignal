@@ -114,8 +114,11 @@ export const Article = () => {
                             ),
                             // 👇 Aquí defines cómo se renderiza un enlace
                             link: ({ children, url }) => (
-                                <a href={url} aria-label={(typeof children === 'string' ? children : undefined)}
-                                    className="text-blue-500 hover:underline font-bold">
+                                <a
+                                    href={url}
+                                    aria-label={typeof children === 'string' ? children : undefined}
+                                    className="text-blue-500 hover:underline font-bold"
+                                >
                                     {children}
                                 </a>
                             ),
