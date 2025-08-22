@@ -1,8 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Navbar, Footer, Article } from "./components"
-import { About, CategoryContent, Contact, LatestNews, Legals, PrivacyPolicy } from "./pages"
+import { About, CategoryContent, Contact, CookieConsent, LatestNews, Legals, PrivacyPolicy } from "./pages"
 import { ArticlesProvider, DarkModeProvider } from './context';
-import CookieConsent from './pages/CookieConsent';
 import { CategoriesProvider } from './context/CategoriesProvider';
 
 

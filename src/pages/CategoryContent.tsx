@@ -56,7 +56,7 @@ export const CategoryContent = () => {
 
             <div className="grid grid-cols-1 tablet:grid-cols-4 w-full large-desktop:w-4/5 mx-auto gap-10 p-3 large-desktop:mt-3 large-desktop:mb-10">
                 {
-                    recentArticles.slice(4, 8).map(({ id, title, cover, contenido, publishedAt,slug }) => {
+                    recentArticles.slice(4, 8).map(({ id, title, cover, contenido, publishedAt, slug }) => {
 
                         const formattedDate = new Intl.DateTimeFormat('es-ES', {
                             year: 'numeric',
@@ -66,18 +66,18 @@ export const CategoryContent = () => {
 
                         return (
                             <div key={id}>
-                                <Link to={`/article/${slug}`} className="no-underline text-inherit">
-                                    <div className="card w-full">
+                                <div className="card w-full">
+                                    <Link to={`/article/${slug}`} className="no-underline text-inherit">
                                         <img src={cover} loading="lazy" className="object-cover rounded-sm h-48 large-desktop:h-52" alt="foto" />
-                                        <div className="card-body">
-                                            <h5 className="truncated-title font-title text-lg large-desktop:text-xl">{title}</h5>
-                                            <div className="truncated-text font-secondary text-sm desktop:text-base large-desktop:text-lg">
-                                                <BlocksRenderer content={contenido} />
-                                            </div>
-                                            <p className="card-text"><small className="text-date">{formattedDate}</small></p>
+                                    </Link>
+                                    <div className="card-body">
+                                        <h5 className="truncated-title font-title text-lg large-desktop:text-xl">{title}</h5>
+                                        <div className="truncated-text font-secondary text-sm desktop:text-base large-desktop:text-lg">
+                                            <BlocksRenderer content={contenido} />
                                         </div>
+                                        <p className="card-text"><small className="text-date">{formattedDate}</small></p>
                                     </div>
-                                </Link>
+                                </div>
                             </div>
                         )
                     }

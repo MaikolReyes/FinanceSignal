@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet-async";
 import { NewsRelations } from '../components/NewsRelations';
 import { DarkModeContext } from '../context';
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 
 export const Article = () => {
 
@@ -48,7 +49,7 @@ export const Article = () => {
 
                 <h1 className="card-title text-xl mt-2 font-bold font-secondary desktop:mt-5 tablet:text-3xl">{title}</h1>
                 <hr className={`border-t-2 my-2 ${darkMode ? 'border-white' : 'border-gray-800'} `} />
-                <h3 className="font-secondary text-base font-semibold">Fecha de publicación: {formattedDate}</h3>
+                <h2 className="font-secondary text-base font-semibold">Fecha de publicación: {formattedDate}</h2>
                 <hr className={`border-t-2 my-2 ${darkMode ? 'border-white' : 'border-gray-800'} `} />
 
                 <img src={imagen} className="rounded-xl shadow-lg w-full mx-auto" alt="foto" />
@@ -68,7 +69,7 @@ export const Article = () => {
                 </div>
 
                 <hr className={`border-t-2 my-2 ${darkMode ? 'border-white' : 'border-gray-800'} `} />
-                <h6 className="font-secondary"><small className="text-base font-semibold">Autor:</small> {author} - Analista financiero en FinanceSignal</h6>
+                <h3 className="font-secondary"><small className="text-base font-semibold">Autor:</small> {author} - Analista financiero en FinanceSignal</h3>
                 <hr className={`border-t-2 my-2 ${darkMode ? 'border-white' : 'border-gray-800'} `} />
             </div>
 
@@ -112,16 +113,27 @@ export const Article = () => {
                                     />
                                 </div>
                             ),
-                            // 👇 Aquí defines cómo se renderiza un enlace
-                            link: ({ children, url }) => (
-                                <a
-                                    href={url}
-                                    aria-label={typeof children === 'string' ? children : undefined}
-                                    className="text-blue-500 hover:underline font-bold"
-                                >
-                                    {children}
-                                </a>
-                            ),
+                            link: ({ children, url }) => {
+                                // Extraer texto plano si es posible
+                                const label =
+                                    typeof children === 'string'
+                                        ? children
+                                        : Array.isArray(children)
+                                            ? children.map(child => (typeof child === 'string' ? child : '')).join(' ')
+                                            : 'Enlace';
+
+                                return (
+                                    <Link
+                                        to={url}
+                                        aria-label={label.trim() || 'Enlace'}
+                                        className="text-blue-700 hover:underline font-bold"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        {children || <span className="sr-only">{label}</span>}
+                                    </Link>
+                                );
+                            },
                             quote: ({ children }) => (
                                 <blockquote className={`font-secondary border-l-4 border-blue-500 pl-4 italic font-bold my-4 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
                                     {children}

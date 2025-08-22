@@ -1,37 +1,17 @@
-import { Link } from "react-router-dom";
-import { useContext, useMemo } from "react";
 import { CategoriesContext, DarkModeContext } from "../context";
-// import { CryptoWidget } from "./CryptoWidget";
+import { useContext, useMemo } from "react";
+import TradingviewTicker from "./TradingviewTicker";
+import { DarkMode } from "../controls";
 import lightLogo from '../assets/logoFinanceSignal.png';
 import darkLogo from '../assets/logoFinanceSignal-white.png';
-import { DarkMode } from "../controls";
-import TradingviewTicker from "./TradingviewTicker";
+import { Link } from "react-router-dom";
 
-/*
--------> Future Update
-
-1. Add a button to change the language of the website.
-import { ButtonLanguages } from "../controls";
-<ButtonLanguages /> 
-
-2. Add a button to change the theme of the website.
-import { DarkMode } from "../controls";
-<DarkMode /> 
-
-3. Add a stock widget to show the latest stock prices.
-import { StockWidget } from "./StockWidget";
-<StockWidget />
-
-----------------------------------------------------------
-*/
 
 export const Navbar = () => {
 
     const { darkMode } = useContext(DarkModeContext);
 
-    const sharedClasses = `nav-link font-title hover:!text-gray-700 text-sm tablet:text-base ${darkMode ? 'text-white hover:!text-gray-100' : 'text-black'}`;
-
-    // const { articles, language } = useContext(ArticlesContext);
+    const sharedClasses = `nav-link font-title hover:!text-gray-700 text-sm tablet:text-base ${darkMode ? 'text-white hover:!text-gray-200' : 'text-black'}`;
 
     const { categories, language } = useContext(CategoriesContext);
 
@@ -57,7 +37,7 @@ export const Navbar = () => {
             <nav className="navbar navbar-expand-lg shadow-md z-10 flex justify-around">
 
                 <div className="flex items-start ml-5">
-                    <Link to={''}>
+                    <Link to={'/'}>
                         <img src={darkMode ? darkLogo : lightLogo} alt="Logo de la empresa" className="max-h-8 w-auto" loading="eager" />
                     </Link>
                 </div>
@@ -81,13 +61,13 @@ export const Navbar = () => {
 
                             {/* Aquí se debe agregar un condicional para mostrar el texto en español o en inglés */}
                             {language === 'es' ?
-                                <li className="nav-item border-b-2 border-transparent hover:border-gray-600 transition duration-200">
+                                <li className="nav-item border-b-2 border-transparent hover:border-blue-600 transition duration-200">
                                     <Link to={''} className={`${sharedClasses} `}
                                         aria-current="page">
                                         Últimas noticias
                                     </Link>
                                 </li> :
-                                <li className="nav-item border-b-2 border-transparent hover:border-gray-600 transition duration-200">
+                                <li className="nav-item border-b-2 border-transparent hover:border-blue-600 transition duration-200">
                                     <Link to={''} className={`${sharedClasses}`}
                                         aria-current="page">
                                         Latest News
@@ -97,7 +77,7 @@ export const Navbar = () => {
 
 
                             {uniqueCategories.map(({ id, name }) => (
-                                <li className="nav-item border-b-2 border-transparent hover:border-gray-600 transition duration-200" key={id}>
+                                <li className="nav-item border-b-2 border-transparent hover:border-blue-600 transition duration-200" key={id}>
                                     <Link
                                         className={`${sharedClasses} `}
                                         to={`/category/${name}`}
@@ -115,9 +95,7 @@ export const Navbar = () => {
                 </div>
             </nav>
 
-            {/* <CryptoWidget /> */}
             <TradingviewTicker />
-
         </>
     )
 }

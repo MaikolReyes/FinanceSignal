@@ -23,7 +23,7 @@ export const NewsRelations = () => {
                                     <img src={cover} className="object-cover rounded-sm h-48 large-desktop:h-52" alt="foto" />
                                 </Link>
                                 <div className="card-body">
-                                    <h5 className="truncated-title font-title text-lg large-desktop:text-xl">{title}</h5>
+                                    <h3 className="truncated-title font-title text-lg large-desktop:text-xl">{title}</h3>
                                     <div className="truncated-text font-secondary text-sm desktop:text-base large-desktop:text-lg">
                                         <BlocksRenderer content={contenido} />
                                     </div>
